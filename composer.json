@@ -1,0 +1,14 @@
+{
+    "name": "racoon/api",
+    "description": "Basic API framework.",
+    "minimum-stability": "dev",
+    "license": "proprietary",
+    "require": {
+        "nikic/fast-route": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Racoon\\Api\\": "src/"
+        }
+    }
+}
