@@ -178,6 +178,10 @@ class Request
                 ->processRoutes($this->getHttpMethod(), $this->getUri())
                 ->getDispatcherResult();
 
+            if ($dispatcherResult->getClassObject() instanceof '\\Racoon\\Api\\Controller') {
+                $dispatcherResult->getClassObject()->setRequest($this);
+            }
+
             $controllerResponse = call_user_func_array([
                 $dispatcherResult->getClassObject(),
                 $dispatcherResult->getMethod(),
