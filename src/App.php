@@ -29,6 +29,11 @@ class App
     protected $request;
 
     /**
+     * @var string
+     */
+    protected $requestClass;
+
+    /**
      * @var Router
      */
     protected $router;
@@ -40,15 +45,24 @@ class App
 
     public function __construct()
     {
-        $this->request = new Request();
+        $this->setRequestClass('\\Recoon\\Api\\Request');
         $this->authenticator = new ApiKeyAuthenticator();
         $this->router = new Router();
         $this->responseFormatter = new JsonFormatter();
     }
 
 
+    public function createRequest()
+    {
+        $reflectionClass = new \ReflectionClass($this->getRequestClass());
+        $this->request = $reflectionClass->newInstance();
+    }
+
+
     public function run()
     {
+        $this->createRequest();
+
         $displayException = null;
         $controllerResponse = null;
         $httpResponseCode = 200;
@@ -179,6 +193,33 @@ class App
     public function setResponseFormatter($responseFormatter)
     {
         $this->responseFormatter = $responseFormatter;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getRequestClass()
+    {
+        return $this->requestClass;
+    }
+
+
+    /**
+     * @param string $requestClass
+     */
+    public function setRequestClass($requestClass)
+    {
+        $this->requestClass = $requestClass;
+    }
+
+
+    /**
+     * @return Request
+     */
+    public function getRequest()
+    {
+        return $this->request;
     }
 
 }
