@@ -3,6 +3,16 @@
     "description": "Basic API framework.",
     "minimum-stability": "dev",
     "license": "proprietary",
+    "authors": [
+        {
+            "name": "Tom Wright",
+            "email": "tom.wright@submissiontechnology.co.uk"
+        },
+        {
+            "name": "John Saunders",
+            "email": "john@submissiontechnology.co.uk"
+        }
+    ],
     "require": {
         "nikic/fast-route": "^1.0"
     },
