@@ -45,7 +45,7 @@ class App
 
     public function __construct()
     {
-        $this->setRequestClass('\\Recoon\\Api\\Request');
+        $this->setRequestClass('\\Racoon\\Api\\Request');
         $this->authenticator = new ApiKeyAuthenticator();
         $this->router = new Router();
         $this->responseFormatter = new JsonFormatter();
