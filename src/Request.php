@@ -3,6 +3,7 @@
 namespace Racoon\Api;
 
 
+use Racoon\Api\Controller;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Exception\InvalidJsonException;
 use Racoon\Api\Router\Router;
@@ -178,8 +179,12 @@ class Request
                 ->processRoutes($this->getHttpMethod(), $this->getUri())
                 ->getDispatcherResult();
 
-            if ($dispatcherResult->getClassObject() instanceof '\\Racoon\\Api\\Controller') {
+            if ($dispatcherResult->getClassObject() instanceof Controller) {
                 $dispatcherResult->getClassObject()->setRequest($this);
+            }
+
+            if (method_exists($dispatcherResult->getClassObject(), 'setupRequest') && is_callable([$dispatcherResult->getClassObject(), 'setupRequest'])) {
+                call_user_func([$dispatcherResult->getClassObject(), 'setupRequest']);
             }
 
             $controllerResponse = call_user_func_array([
