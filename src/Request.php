@@ -138,10 +138,12 @@ class Request
 
     /**
      * @param string $httpMethod
+     * @return $this
      */
     public function setHttpMethod($httpMethod)
     {
         $this->httpMethod = $httpMethod;
+        return $this;
     }
 
 
@@ -156,10 +158,12 @@ class Request
 
     /**
      * @param string $uri
+     * @return $this
      */
     public function setUri($uri)
     {
         $this->uri = $uri;
+        return $this;
     }
 
 

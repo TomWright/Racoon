@@ -69,7 +69,12 @@ class App
 
         try {
             $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
-            $this->request->setRequestJson($json);
+            $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
+            $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
+            $this->request
+                ->setRequestJson($json)
+                ->setHttpMethod($requestMethod)
+                ->setUri($uri);
             $this->authenticator->authenticate($this->request);
             $this->router->init();
             $controllerResponse = $this->request->process($this->router);
