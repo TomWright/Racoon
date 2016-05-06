@@ -7,6 +7,7 @@ use Racoon\Api\Controller;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Exception\InvalidJsonException;
 use Racoon\Api\Router\Router;
+use Racoon\Api\Schema\Schema;
 
 class Request
 {
@@ -40,6 +41,11 @@ class Request
      * @var string
      */
     protected $uri;
+
+    /**
+     * @var Schema
+     */
+    protected $schema;
 
     public function __construct()
     {
@@ -259,6 +265,24 @@ class Request
         }
 
         return null;
+    }
+
+
+    /**
+     * @return Schema
+     */
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+
+
+    /**
+     * @param Schema $schema
+     */
+    public function setSchema($schema)
+    {
+        $this->schema = $schema;
     }
 
 }
