@@ -129,7 +129,11 @@ class App
         if (is_object($exception)) {
             $response->message = $exception->getMessage();
         }
-        $response->parameters = [];
+        if (is_object($this->getRequest()->getSchema())) {
+            $response->schema = $this->getRequest()->getSchema()->getDefinition();
+        } else {
+            $response->schema = null;
+        }
         $response->received = $this->request->getFullRequestData();
         $response->time_elapsed = number_format($this->request->getElapsedTime(true), 3);
         $response->response = $controllerResponse;
