@@ -38,7 +38,7 @@ class ApiKeyAuthenticator implements AuthInterface
      */
     public function authenticate(Request $request)
     {
-        $data = $request->getFullRequest();
+        $data = $request->getFullRequestData();
         
         if (! (is_object($data) && isset($data->{$this->getApiKeyName()}))) {
             throw new AuthenticationException($request, 'API Key not found.');

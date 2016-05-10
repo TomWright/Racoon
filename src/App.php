@@ -130,7 +130,7 @@ class App
             $response->message = $exception->getMessage();
         }
         $response->parameters = [];
-        $response->received = $this->request->getFullRequest();
+        $response->received = $this->request->getFullRequestData();
         $response->time_elapsed = number_format($this->request->getElapsedTime(true), 3);
         $response->response = $controllerResponse;
 

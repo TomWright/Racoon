@@ -57,7 +57,7 @@ class Request
      * @param bool $fullRequest
      * @return null|object
      */
-    public function getRequest($fullRequest = false)
+    public function getRequestData($fullRequest = false)
     {
         if ($fullRequest) {
             return $this->request;
@@ -70,9 +70,9 @@ class Request
     /**
      * @return null|object
      */
-    public function getFullRequest()
+    public function getFullRequestData()
     {
-        return $this->getRequest(true);
+        return $this->getRequestData(true);
     }
 
 
