@@ -115,4 +115,28 @@ class Schema
         return $passed;
     }
 
+
+    /**
+     * @return Item[]
+     */
+    public function getItems()
+    {
+       return $this->items;
+    }
+
+
+    /**
+     * @return \stdClass
+     */
+    public function getDefinition()
+    {
+        $result = new \stdClass();
+
+        foreach ($this->items as $item) {
+            $result->{$item->getPropertyName()} = $item->getRequirements();
+        }
+
+        return $result;
+    }
+
 }
