@@ -6,6 +6,7 @@ namespace Racoon\Api;
 use Racoon\Api\Controller;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Exception\InvalidJsonException;
+use Racoon\Api\Router\DispatcherResult;
 use Racoon\Api\Router\Router;
 use Racoon\Api\Schema\Schema;
 
@@ -46,6 +47,11 @@ class Request
      * @var Schema
      */
     protected $schema;
+
+    /**
+     * @var DispatcherResult
+     */
+    protected $dispatcherResult;
 
     public function __construct()
     {
@@ -176,10 +182,11 @@ class Request
     /**
      * Process the current request.
      * @param Router $router
+     * @param bool $requiresSchema
      * @return mixed
      * @throws Exception
      */
-    public function process(Router $router)
+    public function process(Router $router, $requiresSchema = false)
     {
         $controllerResponse = null;
 
@@ -188,6 +195,8 @@ class Request
             $dispatcherResult = $router
                 ->processRoutes($this->getHttpMethod(), $this->getUri())
                 ->getDispatcherResult();
+
+            $this->setDispatcherResult($dispatcherResult);
 
             if ($dispatcherResult->getClassObject() instanceof Controller) {
                 $dispatcherResult->getClassObject()->setRequest($this);
@@ -201,6 +210,10 @@ class Request
                 $dispatcherResult->getClassObject(),
                 $dispatcherResult->getMethod(),
             ], $dispatcherResult->getVars());
+
+            if ($requiresSchema && ! is_object($this->getSchema())) {
+                throw new Exception($this, false, "Requires Schema is set to true but no Schema is present.");
+            }
 
         } catch (Exception $e) {
             // Attach the request to the exception.
@@ -283,6 +296,24 @@ class Request
     public function setSchema($schema)
     {
         $this->schema = $schema;
+    }
+
+
+    /**
+     * @return DispatcherResult
+     */
+    public function getDispatcherResult()
+    {
+        return $this->dispatcherResult;
+    }
+
+
+    /**
+     * @param DispatcherResult $dispatcherResult
+     */
+    public function setDispatcherResult($dispatcherResult)
+    {
+        $this->dispatcherResult = $dispatcherResult;
     }
 
 }

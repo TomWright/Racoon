@@ -43,12 +43,18 @@ class App
      */
     protected $responseFormatter;
 
+    /**
+     * @var bool
+     */
+    protected $requiresSchema;
+
     public function __construct()
     {
         $this->setRequestClass('\\Racoon\\Api\\Request');
         $this->authenticator = new ApiKeyAuthenticator();
         $this->router = new Router();
         $this->responseFormatter = new JsonFormatter();
+        $this->setRequiresSchema(false);
     }
 
 
@@ -77,7 +83,7 @@ class App
                 ->setUri($uri);
             $this->authenticator->authenticate($this->request);
             $this->router->init();
-            $controllerResponse = $this->request->process($this->router);
+            $controllerResponse = $this->request->process($this->router, $this->getRequiresSchema());
         } catch (Exception $e) {
             if ($e->shouldDisplayAsError()) {
                 $displayException = $e;
@@ -229,6 +235,24 @@ class App
     public function getRequest()
     {
         return $this->request;
+    }
+
+
+    /**
+     * @return boolean
+     */
+    public function getRequiresSchema()
+    {
+        return $this->requiresSchema;
+    }
+
+
+    /**
+     * @param boolean $requiresSchema
+     */
+    public function setRequiresSchema($requiresSchema)
+    {
+        $this->requiresSchema = $requiresSchema;
     }
 
 }
