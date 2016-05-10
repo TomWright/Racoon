@@ -1197,12 +1197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomWright/Validator.git",
-                "reference": "c30738431b7b31cd871db0e6f5d318015a7f3f2a"
+                "reference": "693c1ed369038d605b40ac34786942cd049931fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomWright/Validator/zipball/c30738431b7b31cd871db0e6f5d318015a7f3f2a",
-                "reference": "c30738431b7b31cd871db0e6f5d318015a7f3f2a",
+                "url": "https://api.github.com/repos/TomWright/Validator/zipball/693c1ed369038d605b40ac34786942cd049931fe",
+                "reference": "693c1ed369038d605b40ac34786942cd049931fe",
                 "shasum": ""
             },
             "require": {
@@ -1222,7 +1222,7 @@
                 }
             ],
             "description": "Quick and easy validation library.",
-            "time": "2016-03-22 16:07:57"
+            "time": "2016-05-10 10:54:50"
         }
     ],
     "packages-dev": [],
