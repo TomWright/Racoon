@@ -87,7 +87,7 @@ class Item
      */
     public function validate($request)
     {
-        $valueExists = (is_object($request) && isset($request->{$this->getPropertyName()}));
+        $valueExists = (is_object($request) && property_exists($request, $this->getPropertyName()));
         if ($this->isRequired() && ! $valueExists) {
             throw new InvalidArgumentException(null, "Missing required field: {$this->getPropertyName()}");
         } elseif (! $this->isRequired()) {
