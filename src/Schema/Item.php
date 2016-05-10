@@ -3,6 +3,7 @@
 namespace Racoon\Api\Schema;
 
 
+use Racoon\Api\Exception\InvalidArgumentException;
 use TomWright\Validator\Constraint\ConstraintGroup;
 use TomWright\Validator\Validator;
 
@@ -29,23 +30,37 @@ class Item
      */
     protected $validator;
 
+    /**
+     * @var bool
+     */
+    protected $required;
+
+    /**
+     * @var ConstraintGroup
+     */
+    protected $optionalConstraintGroup;
+
 
     /**
      * Item constructor.
      * @param string $propertyName
      * @param string $readableName
      * @param array|ConstraintGroup[] $constraintGroups
+     * @param bool $required
+     * @param ConstraintGroup $optionalConstraintGroup
      */
-    public function __construct($propertyName, $readableName, array $constraintGroups = [])
+    public function __construct($propertyName, $readableName, array $constraintGroups = [], $required = true, ConstraintGroup $optionalConstraintGroup = null)
     {
         $this->validator = new Validator(null, null);
         $this->setPropertyName($propertyName);
         $this->setReadableName($readableName);
+        $this->setRequired($required);
         if (is_array($constraintGroups) && count($constraintGroups) > 0) {
             foreach ($constraintGroups as $constraintGroup) {
                 $this->validator->addConstraintGroup($constraintGroup);
             }
         }
+        $this->setOptionalConstraintGroup($optionalConstraintGroup);
     }
 
 
@@ -53,11 +68,12 @@ class Item
      * @param $propertyName
      * @param $readableName
      * @param array|ConstraintGroup[] $constraintGroups
+     * @param bool $required
      * @return static
      */
-    public static function create($propertyName, $readableName, array $constraintGroups = [])
+    public static function create($propertyName, $readableName, array $constraintGroups = [], $required = true)
     {
-        $item = new static($propertyName, $readableName, $constraintGroups);
+        $item = new static($propertyName, $readableName, $constraintGroups, $required);
         return $item;
     }
 
@@ -65,11 +81,28 @@ class Item
     /**
      * @param \stdClass $request
      * @return bool
+     * @throws InvalidArgumentException
+     * @throws \TomWright\Validator\Exception\FailedConstraintException
      */
     public function validate($request)
     {
+        $valueExists = (is_object($request) && isset($request->{$this->getPropertyName()}));
+        if ($this->isRequired() && ! $valueExists) {
+            throw new InvalidArgumentException(null, "Missing required field: {$this->getPropertyName()}");
+        } elseif (! $this->isRequired()) {
+            if (! $valueExists) {
+                $this->validator->addConstraintGroup(
+                    ConstraintGroup::create([
+                        NullConstraint::create(),
+                    ])
+                );
+            } elseif (is_object($this->getOptionalConstraintGroup())) {
+                $this->validator->addConstraintGroup($this->getOptionalConstraintGroup());
+            }
+        }
+
         $value = null;
-        if (is_object($request) && isset($request->{$this->getPropertyName()})) {
+        if ($valueExists) {
             $value = $request->{$this->getPropertyName()};
         }
         $this->setPropertyValue($value);
@@ -155,6 +188,42 @@ class Item
     public function getRequirements()
     {
         return $this->getValidator()->getRequirementsString();
+    }
+
+
+    /**
+     * @return boolean
+     */
+    public function isRequired()
+    {
+        return $this->required;
+    }
+
+
+    /**
+     * @param boolean $required
+     */
+    public function setRequired($required)
+    {
+        $this->required = $required;
+    }
+
+
+    /**
+     * @return ConstraintGroup
+     */
+    public function getOptionalConstraintGroup()
+    {
+        return $this->optionalConstraintGroup;
+    }
+
+
+    /**
+     * @param ConstraintGroup $optionalConstraintGroup
+     */
+    public function setOptionalConstraintGroup($optionalConstraintGroup)
+    {
+        $this->optionalConstraintGroup = $optionalConstraintGroup;
     }
 
 }
