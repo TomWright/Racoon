@@ -69,11 +69,12 @@ class Item
      * @param $readableName
      * @param array|ConstraintGroup[] $constraintGroups
      * @param bool $required
+     * @param ConstraintGroup $optionalConstraintGroup
      * @return static
      */
-    public static function create($propertyName, $readableName, array $constraintGroups = [], $required = true)
+    public static function create($propertyName, $readableName, array $constraintGroups = [], $required = true, ConstraintGroup $optionalConstraintGroup = null)
     {
-        $item = new static($propertyName, $readableName, $constraintGroups, $required);
+        $item = new static($propertyName, $readableName, $constraintGroups, $required, $optionalConstraintGroup);
         return $item;
     }
 
