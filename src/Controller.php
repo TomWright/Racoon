@@ -43,15 +43,19 @@ abstract class Controller
 
     /**
      * @param Schema|null $schema
+     * @param bool $setSchema
      * @throws Exception\InvalidArgumentException
      */
-    public function validateSchema(Schema $schema = null)
+    public function validateSchema(Schema $schema = null, $setSchema = true)
     {
         if ($schema === null) {
             $schema = $this->getRequest()->getSchema();
         }
 
         if (is_object($schema)) {
+            if ($setSchema) {
+                $this->setSchema($schema);
+            }
             $schema->validate($this->getRequest()->getRequestData());
         }
     }
