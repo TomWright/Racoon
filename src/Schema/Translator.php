@@ -125,6 +125,37 @@ class Translator
 
 
     /**
+     * @return $this
+     */
+    public function required()
+    {
+        $this->getItem()->setRequired(true);
+        return $this;
+    }
+
+
+    /**
+     * @return $this
+     */
+    public function optional()
+    {
+        $this->getItem()->setRequired(false);
+        return $this;
+    }
+
+
+    /**
+     * @param ConstraintGroup|null $group
+     * @return $this
+     */
+    public function optionalConstraintGroup(ConstraintGroup $group = null)
+    {
+        $this->getItem()->setOptionalConstraintGroup($group);
+        return $this;
+    }
+
+
+    /**
      * @param null|bool $requiredValue
      * @return $this
      */
