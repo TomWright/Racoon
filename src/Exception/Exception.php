@@ -18,7 +18,7 @@ class Exception extends \Exception
      */
     protected $displayAsError;
 
-    public function __construct(Request $request = null, $displayAsError = false, $message, $code, \Exception $previous = null)
+    public function __construct(Request $request = null, $displayAsError = false, $message, $code = 0, \Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
         $this->setRequest($request);
