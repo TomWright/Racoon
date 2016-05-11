@@ -5,6 +5,7 @@ namespace Racoon\Api\Schema;
 
 use TomWright\Validator\Constraint\BoolConstraint;
 use TomWright\Validator\Constraint\ConstraintGroup;
+use TomWright\Validator\Constraint\ConstraintGroupTranslator;
 use TomWright\Validator\Constraint\EmailConstraint;
 use TomWright\Validator\Constraint\IntConstraint;
 use TomWright\Validator\Constraint\NotNullConstraint;
@@ -32,7 +33,7 @@ class Translator
     protected $readableName;
 
     /**
-     * @var ConstraintGroup
+     * @var ConstraintGroupTranslator
      */
     protected $currentConstraintGroup;
 
@@ -76,12 +77,12 @@ class Translator
 
 
     /**
-     * @return ConstraintGroup
+     * @return ConstraintGroupTranslator
      */
     public function getCurrentConstraintGroup()
     {
         if (! $this->hasCurrentConstraintGroup()) {
-            $this->currentConstraintGroup = ConstraintGroup::create();
+            $this->currentConstraintGroup = ConstraintGroupTranslator::create();
         }
         return $this->currentConstraintGroup;
     }
@@ -146,7 +147,7 @@ class Translator
 
 
     /**
-     * @param ConstraintGroup|null $group
+     * @param ConstraintGroup|ConstraintGroupTranslator|null $group
      * @return $this
      */
     public function optionalConstraintGroup(ConstraintGroup $group = null)
@@ -162,14 +163,7 @@ class Translator
      */
     public function isBool($requiredValue = null)
     {
-        $constraint = BoolConstraint::create();
-        if ($requiredValue !== null) {
-            $constraint->setRequiredValue($requiredValue);
-        }
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isBool($requiredValue);
         return $this;
     }
 
@@ -179,7 +173,8 @@ class Translator
      */
     public function isTrue()
     {
-        return $this->isBool(true);
+        $this->getCurrentConstraintGroup()->isTrue();
+        return $this;
     }
 
 
@@ -188,7 +183,8 @@ class Translator
      */
     public function isFalse()
     {
-        return $this->isBool(false);
+        $this->getCurrentConstraintGroup()->isFalse();
+        return $this;
     }
 
 
@@ -199,39 +195,43 @@ class Translator
      */
     public function isString($minLength = null, $maxLength = null)
     {
-        $constraint = StringConstraint::create();
-        if ($minLength !== null) {
-            $constraint->setMinLength($minLength);
-        }
-        if ($maxLength !== null) {
-            $constraint->setMinLength($maxLength);
-        }
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isString($minLength, $maxLength);
         return $this;
     }
 
 
     /**
-     * @param null $minValue
-     * @param null $maxValue
+     * @param null|int $minValue
+     * @param null|int $maxValue
      * @return $this
      */
     public function isInt($minValue = null, $maxValue = null)
     {
-        $constraint = IntConstraint::create();
-        if ($minValue !== null) {
-            $constraint->setMinValue($minValue);
-        }
-        if ($maxValue !== null) {
-            $constraint->setMaxValue($maxValue);
-        }
+        $this->getCurrentConstraintGroup()->isInt($minValue, $maxValue);
+        return $this;
+    }
 
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
 
+    /**
+     * @param null|float $minValue
+     * @param null|float $maxValue
+     * @return $this
+     */
+    public function isFloat($minValue = null, $maxValue = null)
+    {
+        $this->getCurrentConstraintGroup()->isFloat($minValue, $maxValue);
+        return $this;
+    }
+
+
+    /**
+     * @param null|int|float $minValue
+     * @param null|int|float $maxValue
+     * @return $this
+     */
+    public function isNumeric($minValue = null, $maxValue = null)
+    {
+        $this->getCurrentConstraintGroup()->isNumeric($minValue, $maxValue);
         return $this;
     }
 
@@ -241,11 +241,7 @@ class Translator
      */
     public function isNull()
     {
-        $constraint = NullConstraint::create();
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isNull();
         return $this;
     }
 
@@ -255,11 +251,7 @@ class Translator
      */
     public function notNull()
     {
-        $constraint = NotNullConstraint::create();
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->notNull();
         return $this;
     }
 
@@ -269,11 +261,7 @@ class Translator
      */
     public function isEmail()
     {
-        $constraint = EmailConstraint::create();
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isEmail();
         return $this;
     }
 
@@ -283,11 +271,7 @@ class Translator
      */
     public function isArray()
     {
-        $constraint = ArrayConstraint::create();
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isArray();
         return $this;
     }
 
@@ -298,14 +282,7 @@ class Translator
      */
     public function isObject($requiredClass = null)
     {
-        $constraint = ObjectConstraint::create();
-        if ($requiredClass !== null) {
-            $constraint->setRequiredClass($requiredClass);
-        }
-
-        $group = $this->getCurrentConstraintGroup();
-        $group->addConstraint($constraint);
-
+        $this->getCurrentConstraintGroup()->isObject($requiredClass);
         return $this;
     }
 
