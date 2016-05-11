@@ -69,6 +69,7 @@ class Translator
     {
         if ($this->hasCurrentConstraintGroup()) {
             $this->getItem()->getValidator()->addConstraintGroup($this->getCurrentConstraintGroup());
+            $this->currentConstraintGroup = null;
         }
         return $this;
     }
