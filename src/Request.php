@@ -3,7 +3,6 @@
 namespace Racoon\Api;
 
 
-use Racoon\Api\Controller;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Exception\InvalidJsonException;
 use Racoon\Api\Router\DispatcherResult;
@@ -52,6 +51,11 @@ class Request
      * @var DispatcherResult
      */
     protected $dispatcherResult;
+
+    /**
+     * @var string|null
+     */
+    protected $responseMessage;
 
     public function __construct()
     {
@@ -314,6 +318,24 @@ class Request
     public function setDispatcherResult($dispatcherResult)
     {
         $this->dispatcherResult = $dispatcherResult;
+    }
+
+
+    /**
+     * @return null|string
+     */
+    public function getResponseMessage()
+    {
+        return $this->responseMessage;
+    }
+
+
+    /**
+     * @param null|string $responseMessage
+     */
+    public function setResponseMessage($responseMessage)
+    {
+        $this->responseMessage = $responseMessage;
     }
 
 }

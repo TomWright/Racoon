@@ -131,7 +131,7 @@ class App
     {
         $response = new \stdClass();
         $response->success = (! is_object($exception));
-        $response->message = null;
+        $response->message = $this->getRequest()->getResponseMessage();
         if (is_object($exception)) {
             $response->message = $exception->getMessage();
         }
