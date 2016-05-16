@@ -13,6 +13,11 @@ class Router
 {
 
     /**
+     * @var string
+     */
+    protected $currentUri;
+
+    /**
      * @var string[]
      */
     protected $routeFiles = [];
@@ -132,6 +137,7 @@ class Router
             $uri = substr($uri, 0, $pos);
         }
         $uri = rawurldecode($uri);
+        $this->setCurrentUri($uri);
         
         $this->dispatcherResult = new DispatcherResult();
         
@@ -181,6 +187,24 @@ class Router
     public function getDispatcherResult()
     {
         return $this->dispatcherResult;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getCurrentUri()
+    {
+        return $this->currentUri;
+    }
+
+
+    /**
+     * @param string $currentUri
+     */
+    protected function setCurrentUri($currentUri)
+    {
+        $this->currentUri = $currentUri;
     }
 
 }
