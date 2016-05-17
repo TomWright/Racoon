@@ -4,7 +4,6 @@ namespace Racoon\Api\Router;
 
 
 use FastRoute\Dispatcher;
-use FastRoute\RouteCollector;
 use Racoon\Api\Exception\InvalidRouteException;
 use Racoon\Api\Exception\NotFoundException;
 use Racoon\Api\Exception\RouterException;
@@ -65,7 +64,7 @@ class Router
                     throw new RouterException($this->request, 'Route file does not exist: ' . $routeFile);
                 }
             }
-        });
+        }, ['routeCollector' => '\\Racoon\\Api\\Router\\RouteCollector']);
     }
 
     /**
