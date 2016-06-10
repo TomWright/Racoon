@@ -1,6 +1,0 @@
-syntax: glob
-.vagrant/
-vendor/
-Vagrantfile
-provision/
-public/

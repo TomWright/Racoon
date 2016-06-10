@@ -1,4 +1,11 @@
 # Racoon API Framework
+
+[![Build Status](https://travis-ci.org/TomWright/Racoon.svg?branch=master)](https://travis-ci.org/TomWright/Racoon)
+[![Total Downloads](https://poser.pugx.org/racoon/api/d/total.svg)](https://packagist.org/packages/racoon/api)
+[![Latest Stable Version](https://poser.pugx.org/racoon/api/v/stable.svg)](https://packagist.org/packages/racoon/api)
+[![Latest Unstable Version](https://poser.pugx.org/racoon/api/v/unstable.svg)](https://packagist.org/packages/racoon/api)
+[![License](https://poser.pugx.org/racoon/api/license.svg)](https://packagist.org/packages/racoon/api)
+
 Racoon is a basic API framework designed to make it quick and easy to put together a simple PHP API.
 
 ## Getting Started
