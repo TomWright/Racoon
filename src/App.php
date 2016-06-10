@@ -3,8 +3,8 @@
 namespace Racoon\Api;
 
 
-use Racoon\Api\Auth\ApiKeyAuthenticator;
 use Racoon\Api\Auth\AuthInterface;
+use Racoon\Api\Auth\NoAuthenticator;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Response\Format\FormatterInterface;
 use Racoon\Api\Response\Format\JsonFormatter;
@@ -51,7 +51,7 @@ class App
     public function __construct()
     {
         $this->setRequestClass('\\Racoon\\Api\\Request');
-        $this->authenticator = new ApiKeyAuthenticator();
+        $this->authenticator = new NoAuthenticator();
         $this->router = new Router();
         $this->responseFormatter = new JsonFormatter();
         $this->setRequiresSchema(false);

@@ -1,12 +1,12 @@
 {
     "name": "racoon/api",
-    "description": "Basic API framework.",
+    "description": "Racoon is a basic API framework designed to make it quick and easy to put together a simple PHP API.",
     "minimum-stability": "dev",
     "license": "proprietary",
     "authors": [
         {
             "name": "Tom Wright",
-            "email": "tom.wright@submissiontechnology.co.uk"
+            "email": "contact@tomwright.me"
         },
         {
             "name": "John Saunders",

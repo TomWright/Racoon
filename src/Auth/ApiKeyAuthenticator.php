@@ -7,7 +7,7 @@ use Racoon\Api\Exception\AuthenticationException;
 use Racoon\Api\Request;
 
 /**
- * Basic authenticator which serves as an example.
+ * Basic authenticator which can be used to set a static list of API keys.
  * Class ApiKeyAuthenticator
  * @package Racoon\Api\Auth
  */
