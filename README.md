@@ -252,6 +252,69 @@ class Request extends \Racoon\Api\Request
 $app->setRequestClass('\\MyApp\\Request');
 ```
 
+## Using the API
+Using the API is simple.
+
+All data is passed to Racoon as JSON in a `GET` or `POST` variable named `json`.
+
+If you want to send data under a different name rather than `json`, you can do the following.
+
+```php
+$app->setJsonKeyName('new_json_key');
+```
+
+Let's say we have got things set up for `mydomain.com`, and we have a route that matches `/users/get` with a required item of `user_id`. If we were to make a `GET` request, the request should look something like this....
+
+```
+http://mydomain.com/users/get?json={"request":{"user_id": 5}}
+```
+
+Notice that the `request` is in it's own object inside of `json`. This allows you to separate authentication/test parameters from the actual data you want to use in your Controller.
+
+E.g.
+
+```
+http://mydomain.com/users/get?json={"api_key": "easSdasesfWasd","request":{"user_id": 5}}
+```
+
+## Response
+When working with Racoon you will always get a formatted response that looks something like the following (depending on which Response Formatter you use).
+
+```json
+{
+    // True if no Exception was thrown. False if an Exception was thrown.
+    "success": false,
+
+    // The message set by the Controller, or the Exception message.
+    "message": "Missing required field: asd",
+
+    // The Schema that was set up in the Controller.
+    "schema": {
+        "first_name": "first_name must be a string, be at least 3 characters in length."
+    },
+
+    // The data that was sent to the API.
+    "received": {
+        "api_key": "qweqwe",
+        "request": {
+            "first_name": "Tom"
+        }
+    },
+
+    // The time (in ms) that it took for the API request to be processed.
+    "time_elapsed": "110.129",
+
+    // The data that was returned by the Controller.
+    "response": null
+}
+```
+
+In addition to the above, if an `Exception` is thrown that is set up to return the error, the `code` of that `Exception` will be used to set the HTTP response code.
+
+
+## Planned Features
+- The ability to pass request JSON to the API in the POST body as well as in the URL.
+
 [nikic/fast-route]: https://github.com/nikic/FastRoute
 [fastroute-route-docs]: https://github.com/nikic/FastRoute#defining-routes
 [composer]: https://getcomposer.org
