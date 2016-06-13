@@ -15,7 +15,8 @@
     ],
     "require": {
         "tomwright/validator": "*",
-        "nikic/fast-route": "^1.0"
+        "nikic/fast-route": "^1.0",
+        "racoon/router": "^1.0"
     },
     "autoload": {
         "psr-4": {

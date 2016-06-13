@@ -8,7 +8,7 @@ use Racoon\Api\Auth\NoAuthenticator;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Response\Format\FormatterInterface;
 use Racoon\Api\Response\Format\JsonFormatter;
-use Racoon\Api\Router\Router;
+use Racoon\Router\Router;
 
 class App
 {
@@ -84,15 +84,17 @@ class App
             $this->authenticator->authenticate($this->request);
             $this->router->init();
             $controllerResponse = $this->request->process($this->router, $this->getRequiresSchema());
-        } catch (Exception $e) {
-            if ($e->shouldDisplayAsError()) {
-                $displayException = $e;
-                $httpResponseCode = $e->getCode();
-                if ($httpResponseCode === 0) {
-                    $httpResponseCode = 500;
+        } catch (\Exception $e) {
+            if (method_exists($e, 'shouldDisplayAsError') && is_callable([$e, 'shouldDisplayAsError'])) {
+                if ($e->shouldDisplayAsError()) {
+                    $displayException = $e;
+                    $httpResponseCode = $e->getCode();
+                    if ($httpResponseCode === 0) {
+                        $httpResponseCode = 500;
+                    }
+                } else {
+                    throw $e;
                 }
-            } else {
-                throw $e;
             }
         }
 

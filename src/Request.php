@@ -5,8 +5,8 @@ namespace Racoon\Api;
 
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Exception\InvalidJsonException;
-use Racoon\Api\Router\DispatcherResult;
-use Racoon\Api\Router\Router;
+use Racoon\Router\DispatcherResult;
+use Racoon\Router\Router;
 use Racoon\Api\Schema\Schema;
 
 class Request
