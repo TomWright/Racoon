@@ -282,33 +282,41 @@ When working with Racoon you will always get a formatted response that looks som
 
 ```json
 {
-    // True if no Exception was thrown. False if an Exception was thrown.
     "success": false,
-
-    // The message set by the Controller, or the Exception message.
     "message": "Missing required field: asd",
-
-    // The Schema that was set up in the Controller.
     "schema": {
         "first_name": "first_name must be a string, be at least 3 characters in length."
     },
-
-    // The data that was sent to the API.
     "received": {
         "api_key": "qweqwe",
         "request": {
             "first_name": "Tom"
         }
     },
-
-    // The time (in ms) that it took for the API request to be processed.
     "time_elapsed": "110.129",
-
-    // The data that was returned by the Controller.
     "response": null
 }
 ```
 
+### Success
+True if no Exception was thrown. False if an Exception was thrown.
+
+### Message
+The message set by the Controller, or the Exception message.
+
+### Schema
+The Schema that was set up in the Controller.
+
+### Received
+The data that was sent to the API.
+
+### Time Elapsed
+The time (in ms) that it took for the API request to be processed.
+
+### Response
+The data that was returned by the Controller.
+
+### HTTP Response Code
 In addition to the above, if an `Exception` is thrown that is set up to return the error, the `code` of that `Exception` will be used to set the HTTP response code.
 
 
