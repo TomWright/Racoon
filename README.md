@@ -52,7 +52,7 @@ class Users extends \Racoon\Api\Controller
 ```
 
 ## Routing
-Racoon uses [nikic/fast-route][nikic/fast-route] to deal with routing.
+Racoon uses [racoon/router][racoon/router] to deal with routing.
 
 ### Defining where routes are stored
 
@@ -323,6 +323,7 @@ In addition to the above, if an `Exception` is thrown that is set up to return t
 ## Planned Features
 - The ability to pass request JSON to the API in the POST body as well as in the URL.
 
+[racoon/router]: https://github.com/TomWright/RacoonRouter
 [nikic/fast-route]: https://github.com/nikic/FastRoute
 [fastroute-route-docs]: https://github.com/nikic/FastRoute#defining-routes
 [composer]: https://getcomposer.org
