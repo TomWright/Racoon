@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "901775a147672f417438bed4d70b03c8",
-    "content-hash": "1a2a4d2b441898a5fe9f7d8af1acd0c3",
+    "hash": "d0aefe3eb5a1ea8fe681de1e024a9053",
+    "content-hash": "8166928101c04e9f6a01147789588371",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -631,16 +631,16 @@
         },
         {
             "name": "racoon/router",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TomWright/RacoonRouter.git",
-                "reference": "ceb1472e80cd3b83c9620f1230569bb1410808e6"
+                "reference": "7b831aba1f7b6ab7c32dc834976fbebdb534e50a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TomWright/RacoonRouter/zipball/ceb1472e80cd3b83c9620f1230569bb1410808e6",
-                "reference": "ceb1472e80cd3b83c9620f1230569bb1410808e6",
+                "url": "https://api.github.com/repos/TomWright/RacoonRouter/zipball/7b831aba1f7b6ab7c32dc834976fbebdb534e50a",
+                "reference": "7b831aba1f7b6ab7c32dc834976fbebdb534e50a",
                 "shasum": ""
             },
             "require": {
@@ -668,7 +668,7 @@
                 }
             ],
             "description": "A basic extension of nikic/fast-route.",
-            "time": "2016-06-13 16:40:58"
+            "time": "2016-06-14 10:07:03"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
