@@ -6,7 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/racoon/api/v/unstable.svg)](https://packagist.org/packages/racoon/api)
 [![License](https://poser.pugx.org/racoon/api/license.svg)](https://packagist.org/packages/racoon/api)
 
-Racoon is a basic API framework designed to make it quick and easy to put together a simple PHP API.
+Racoon is a basic API framework designed to make it quick and easy to put together a simple PHP API. [View the documentation][racoon-docs].
 
 ## Getting Started
 
@@ -328,3 +328,4 @@ In addition to the above, if an `Exception` is thrown that is set up to return t
 [fastroute-route-docs]: https://github.com/nikic/FastRoute#defining-routes
 [composer]: https://getcomposer.org
 [tomwright-validator]: https://github.com/TomWright/Validator
+[racoon-docs]: https://rawgit.com/TomWright/Racoon/master/docs/api/index.html
