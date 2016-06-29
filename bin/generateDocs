@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# http://www.apigen.org/
+
+apigen generate --source ./src --destination ./docs/api
+
+echo "Docs generated in ./docs/api"

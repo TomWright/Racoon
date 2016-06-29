@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Racoon\Api\Auth\ApiKeyAuthenticator</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Racoon.html">
+						Racoon<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Racoon.Api.html">
+						Api<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Racoon.Api.Auth.html">
+						Auth					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Exception.html">
+						Exception					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.html">
+						Response<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Format.html">
+						Format					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Generate.html">
+						Generate					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Racoon.Api.Schema.html">
+						Schema					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Racoon.Api.Auth.ApiKeyAuthenticator.html">ApiKeyAuthenticator</a></li>
+				<li><a href="class-Racoon.Api.Auth.NoAuthenticator.html">NoAuthenticator</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Racoon.Api.Auth.AuthInterface.html">AuthInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Racoon.Api.Auth.html" title="Summary of Racoon\Api\Auth"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ApiKeyAuthenticator</h1>
+
+
+	<div class="description">
+	<p>Basic authenticator which can be used to set a static list of API keys.
+Class ApiKeyAuthenticator</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Racoon\Api\Auth\ApiKeyAuthenticator</span></b>			
+			 implements 
+				<a href="class-Racoon.Api.Auth.AuthInterface.html"><span>Racoon\Api\Auth\AuthInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Racoon.html">Racoon</a>\<a href="namespace-Racoon.Api.html">Api</a>\<a href="namespace-Racoon.Api.Auth.html">Auth</a><br>
+		<b>Package:</b> Racoon\Api\Auth<br>
+
+			<b>Located at</b> <a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#9-103" title="Go to source code">Auth/ApiKeyAuthenticator.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#28-31" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticate" id="_authenticate">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticate">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#34-54" title="Go to source code">authenticate</a>( <span><code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code> <var>$request</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$request</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Racoon.Api.Exception.AuthenticationException.html">Racoon\Api\Exception\AuthenticationException</a></code>
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Racoon.Api.Auth.AuthInterface.html#_authenticate">Racoon\Api\Auth\AuthInterface::authenticate()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getApiKeyName" id="_getApiKeyName">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getApiKeyName">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#57-63" title="Go to source code">getApiKeyName</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setApiKeyName" id="_setApiKeyName">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setApiKeyName">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#66-72" title="Go to source code">setApiKeyName</a>( <span>string <var>$apiKeyName</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$apiKeyName</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getValidApiKeys" id="_getValidApiKeys">
+
+		<td class="attributes"><code>
+			 public 
+
+			string[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getValidApiKeys">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#75-81" title="Go to source code">getValidApiKeys</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string[]
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setValidApiKeys" id="_setValidApiKeys">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setValidApiKeys">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#84-90" title="Go to source code">setValidApiKeys</a>( <span>string[] <var>$validApiKeys</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$validApiKeys</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addValidApiKey" id="_addValidApiKey">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addValidApiKey">#</a>
+		<code><a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#93-101" title="Go to source code">addValidApiKey</a>( <span>string <var>$apiKey</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$apiKey</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="apiKeyName" id="$apiKeyName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#17-20" title="Go to source code"><var>$apiKeyName</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$apiKeyName" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="validApiKeys" id="$validApiKeys">
+		<td class="attributes"><code>
+			protected  
+			string[]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Racoon.Api.Auth.ApiKeyAuthenticator.html#22-25" title="Go to source code"><var>$validApiKeys</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$validApiKeys" class="anchor">#</a>
+				<code>[]</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

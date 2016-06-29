@@ -12,49 +12,67 @@ use Racoon\Api\Response\Generate\GeneratorInterface;
 use Racoon\Api\Response\Format\JsonFormatter;
 use Racoon\Router\Router;
 
+/**
+ * The main Racoon API class, through which the entire application should accessed and processed.
+ * @package Racoon\Api
+ */
 class App
 {
 
     /**
+     * Where Racoon should look in the GET / POST array for the JSON request string.
      * @var string
      */
     protected $jsonKeyName = 'json';
 
     /**
+     * The Authenticator that should be used by the application.
      * @var AuthInterface
      */
     protected $authenticator;
 
     /**
+     * The current Request in the Racoon Application.
      * @var Request
      */
     protected $request;
 
     /**
+     * The name of the Request class Racoon should use.
+     * This allows you to add additional functionality to the Request.
      * @var string
      */
     protected $requestClass;
 
     /**
+     * The current Router object being used by the Application.
      * @var Router
      */
     protected $router;
 
     /**
+     * The Formatter to be used by Racoon when formatting the request response.
      * @var FormatterInterface
      */
     protected $responseFormatter;
 
     /**
+     * The Generator to be used by Racoon when putting the request response together.
      * @var GeneratorInterface
      */
     protected $responseGenerator;
 
     /**
+     * Defines whether or not the Controller requires a Schema to be set.
      * @var bool
      */
     protected $requiresSchema;
 
+
+    /**
+     * App constructor.
+     * Set some default options.
+     */
     public function __construct()
     {
         $this->setRequestClass('\\Racoon\\Api\\Request');
@@ -66,6 +84,9 @@ class App
     }
 
 
+    /**
+     * Creates the Request for Racoon to use.
+     */
     public function createRequest()
     {
         $reflectionClass = new \ReflectionClass($this->getRequestClass());
@@ -74,6 +95,11 @@ class App
     }
 
 
+    /**
+     * Runs the Application.
+     * @throws Exception
+     * @throws \Exception
+     */
     public function run()
     {
         $this->createRequest();
@@ -128,6 +154,7 @@ class App
 
 
     /**
+     * Returns where Racoon should look in the GET / POST array for the JSON request string.
      * @return string
      */
     public function getJsonKeyName()
@@ -137,6 +164,7 @@ class App
 
 
     /**
+     * Sets where Racoon should look in the GET / POST array for the JSON request string.
      * @param string $jsonKeyName
      */
     public function setJsonKeyName($jsonKeyName)
@@ -146,6 +174,7 @@ class App
 
 
     /**
+     * Returns the Authenticator that should be used by the application.
      * @return AuthInterface
      */
     public function getAuthenticator()
@@ -155,6 +184,7 @@ class App
 
 
     /**
+     * Sets the Authenticator that should be used by the application.
      * @param AuthInterface $authenticator
      */
     public function setAuthenticator(AuthInterface $authenticator)
@@ -164,6 +194,7 @@ class App
 
 
     /**
+     * Returns the Router being used by the Application.
      * @return Router
      */
     public function getRouter()
@@ -173,6 +204,7 @@ class App
 
 
     /**
+     * Returns the Formatter to be used by Racoon when formatting the request response.
      * @return FormatterInterface
      */
     public function getResponseFormatter()
@@ -182,6 +214,7 @@ class App
 
 
     /**
+     * Sets the Formatter to be used by Racoon when formatting the request response.
      * @param FormatterInterface $responseFormatter
      */
     public function setResponseFormatter($responseFormatter)
@@ -191,6 +224,7 @@ class App
 
 
     /**
+     * Returns the Generator to be used by Racoon when putting the request response together.
      * @return GeneratorInterface
      */
     public function getResponseGenerator()
@@ -200,6 +234,7 @@ class App
 
 
     /**
+     * Sets the Generator to be used by Racoon when putting the request response together.
      * @param GeneratorInterface $responseGenerator
      */
     public function setResponseGenerator($responseGenerator)
@@ -209,6 +244,7 @@ class App
 
 
     /**
+     * Returns the name of the Request class Racoon should use.
      * @return string
      */
     public function getRequestClass()
@@ -218,6 +254,7 @@ class App
 
 
     /**
+     * Sets the name of the Request class Racoon should use.
      * @param string $requestClass
      */
     public function setRequestClass($requestClass)
@@ -227,6 +264,7 @@ class App
 
 
     /**
+     * Returns the current Request being used by Racoon.
      * @return Request
      */
     public function getRequest()
@@ -236,6 +274,7 @@ class App
 
 
     /**
+     * Returns whether or not a Schema is required for the current Request.
      * @return boolean
      */
     public function getRequiresSchema()
@@ -245,6 +284,7 @@ class App
 
 
     /**
+     * Sets whether or not a Schema is required for the current Request.
      * @param boolean $requiresSchema
      */
     public function setRequiresSchema($requiresSchema)

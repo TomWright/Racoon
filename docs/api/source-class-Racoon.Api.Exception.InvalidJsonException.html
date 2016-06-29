@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex">
+
+	<title>File Exception/InvalidJsonException.php</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li>
+					<a href="namespace-Racoon.html">
+						Racoon<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.html">
+						Api<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.Auth.html">
+						Auth					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Exception.html">
+						Exception					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.html">
+						Response<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Format.html">
+						Format					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Generate.html">
+						Generate					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Racoon.Api.Schema.html">
+						Schema					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Racoon.Api.App.html">Racoon\Api\App</a></li>
+				<li><a href="class-Racoon.Api.Auth.ApiKeyAuthenticator.html">Racoon\Api\Auth\ApiKeyAuthenticator</a></li>
+				<li><a href="class-Racoon.Api.Auth.NoAuthenticator.html">Racoon\Api\Auth\NoAuthenticator</a></li>
+				<li><a href="class-Racoon.Api.Controller.html">Racoon\Api\Controller</a></li>
+				<li><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></li>
+				<li><a href="class-Racoon.Api.Response.Format.JsonFormatter.html">Racoon\Api\Response\Format\JsonFormatter</a></li>
+				<li><a href="class-Racoon.Api.Response.Generate.DetailedResponse.html">Racoon\Api\Response\Generate\DetailedResponse</a></li>
+				<li><a href="class-Racoon.Api.Schema.Item.html">Racoon\Api\Schema\Item</a></li>
+				<li><a href="class-Racoon.Api.Schema.Schema.html">Racoon\Api\Schema\Schema</a></li>
+				<li><a href="class-Racoon.Api.Schema.Translator.html">Racoon\Api\Schema\Translator</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Racoon.Api.Auth.AuthInterface.html">Racoon\Api\Auth\AuthInterface</a></li>
+				<li><a href="class-Racoon.Api.Response.Format.FormatterInterface.html">Racoon\Api\Response\Format\FormatterInterface</a></li>
+				<li><a href="class-Racoon.Api.Response.Generate.GeneratorInterface.html">Racoon\Api\Response\Generate\GeneratorInterface</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Racoon.Api.Exception.AuthenticationException.html">Racoon\Api\Exception\AuthenticationException</a></li>
+				<li><a href="class-Racoon.Api.Exception.Exception.html">Racoon\Api\Exception\Exception</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidArgumentException.html">Racoon\Api\Exception\InvalidArgumentException</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidJsonException.html">Racoon\Api\Exception\InvalidJsonException</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidRouteException.html">Racoon\Api\Exception\InvalidRouteException</a></li>
+				<li><a href="class-Racoon.Api.Exception.NotFoundException.html">Racoon\Api\Exception\NotFoundException</a></li>
+				<li><a href="class-Racoon.Api.Exception.ResponseFormattingException.html">Racoon\Api\Exception\ResponseFormattingException</a></li>
+				<li><a href="class-Racoon.Api.Exception.RouterException.html">Racoon\Api\Exception\RouterException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Namespace</span>			</li>
+			<li>
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a href="#2"> 2: </a>
+</span><span id="3" class="l"><a href="#3"> 3: </a><span class="php-keyword1">namespace</span> Racoon\Api\Exception;
+</span><span id="4" class="l"><a href="#4"> 4: </a>
+</span><span id="5" class="l"><a href="#5"> 5: </a>
+</span><span id="6" class="l"><a href="#6"> 6: </a><span class="php-keyword1">use</span> Racoon\Api\Request;
+</span><span id="7" class="l"><a href="#7"> 7: </a>
+</span><span id="8" class="l"><a href="#8"> 8: </a><span class="php-keyword1">class</span> InvalidJsonException <span class="php-keyword1">extends</span> Exception
+</span><span id="9" class="l"><a href="#9"> 9: </a>{
+</span><span id="10" class="l"><a href="#10">10: </a>
+</span><span id="11" class="l"><a href="#11">11: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct(Request <span class="php-var">$request</span> = <span class="php-keyword1">null</span>, <span class="php-var">$message</span>, \Exception <span class="php-var">$previous</span> = <span class="php-keyword1">null</span>)
+</span><span id="12" class="l"><a href="#12">12: </a>    {
+</span><span id="13" class="l"><a href="#13">13: </a>        parent::__construct(<span class="php-var">$request</span>, <span class="php-keyword1">true</span>, <span class="php-var">$message</span>, <span class="php-num">400</span>, <span class="php-var">$previous</span>);
+</span><span id="14" class="l"><a href="#14">14: </a>    }
+</span><span id="15" class="l"><a href="#15">15: </a>}</span></code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?cd021bc814832c24a7cec5319ea03335bfba1caf"></script>
+<script src="elementlist.js?874ac6a2aff650dcffd04d84782c4bcab5d83745"></script>
+</body>
+</html>

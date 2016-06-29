@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Racoon\Api\Exception\Exception</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Racoon.html">
+						Racoon<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Racoon.Api.html">
+						Api<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.Auth.html">
+						Auth					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Racoon.Api.Exception.html">
+						Exception					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.html">
+						Response<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Format.html">
+						Format					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Racoon.Api.Response.Generate.html">
+						Generate					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Racoon.Api.Schema.html">
+						Schema					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Racoon.Api.Exception.AuthenticationException.html">AuthenticationException</a></li>
+				<li class="active"><a href="class-Racoon.Api.Exception.Exception.html">Exception</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidArgumentException.html">InvalidArgumentException</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidJsonException.html">InvalidJsonException</a></li>
+				<li><a href="class-Racoon.Api.Exception.InvalidRouteException.html">InvalidRouteException</a></li>
+				<li><a href="class-Racoon.Api.Exception.NotFoundException.html">NotFoundException</a></li>
+				<li><a href="class-Racoon.Api.Exception.ResponseFormattingException.html">ResponseFormattingException</a></li>
+				<li><a href="class-Racoon.Api.Exception.RouterException.html">RouterException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Racoon.Api.Exception.html" title="Summary of Racoon\Api\Exception"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Exception</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Exception
+			 implements 
+<span>Throwable</span>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Racoon\Api\Exception\Exception</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Racoon.Api.Exception.AuthenticationException.html">Racoon\Api\Exception\AuthenticationException</a>, 
+			<a href="class-Racoon.Api.Exception.InvalidArgumentException.html">Racoon\Api\Exception\InvalidArgumentException</a>, 
+			<a href="class-Racoon.Api.Exception.InvalidJsonException.html">Racoon\Api\Exception\InvalidJsonException</a>, 
+			<a href="class-Racoon.Api.Exception.InvalidRouteException.html">Racoon\Api\Exception\InvalidRouteException</a>, 
+			<a href="class-Racoon.Api.Exception.NotFoundException.html">Racoon\Api\Exception\NotFoundException</a>, 
+			<a href="class-Racoon.Api.Exception.ResponseFormattingException.html">Racoon\Api\Exception\ResponseFormattingException</a>, 
+			<a href="class-Racoon.Api.Exception.RouterException.html">Racoon\Api\Exception\RouterException</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Racoon.html">Racoon</a>\<a href="namespace-Racoon.Api.html">Api</a>\<a href="namespace-Racoon.Api.Exception.html">Exception</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Racoon.Api.Exception.Exception.html#8-64" title="Go to source code">Exception/Exception.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Racoon.Api.Exception.Exception.html#21-26" title="Go to source code">__construct</a>( <span><code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code> <var>$request</var></span>, <span> <var>$displayAsError</var></span>, <span> <var>$message</var></span>, <span> <var>$code</var> = <span class="php-num">0</span></span>, <span><code><a href="class-Racoon.Api.Exception.Exception.html">Racoon\Api\Exception\Exception</a></code> <var>$previous</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code>Exception::__construct()</code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRequest" id="_getRequest">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code>|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRequest">#</a>
+		<code><a href="source-class-Racoon.Api.Exception.Exception.html#29-35" title="Go to source code">getRequest</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code>|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setRequest" id="_setRequest">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setRequest">#</a>
+		<code><a href="source-class-Racoon.Api.Exception.Exception.html#38-44" title="Go to source code">setRequest</a>( <span><code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code>|null <var>$request</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$request</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="shouldDisplayAsError" id="_shouldDisplayAsError">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_shouldDisplayAsError">#</a>
+		<code><a href="source-class-Racoon.Api.Exception.Exception.html#47-53" title="Go to source code">shouldDisplayAsError</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDisplayAsError" id="_setDisplayAsError">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDisplayAsError">#</a>
+		<code><a href="source-class-Racoon.Api.Exception.Exception.html#56-62" title="Go to source code">setDisplayAsError</a>( <span>boolean <var>$displayAsError</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$displayAsError</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from Exception</caption>
+	<tr>
+		<td><code>
+__toString(), 
+__wakeup(), 
+getCode(), 
+getFile(), 
+getLine(), 
+getMessage(), 
+getPrevious(), 
+getTrace(), 
+getTraceAsString()
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="request" id="$request">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Racoon.Api.Request.html">Racoon\Api\Request</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Racoon.Api.Exception.Exception.html#11-14" title="Go to source code"><var>$request</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$request" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="displayAsError" id="$displayAsError">
+		<td class="attributes"><code>
+			protected  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Racoon.Api.Exception.Exception.html#16-19" title="Go to source code"><var>$displayAsError</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$displayAsError" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from Exception</caption>
+	<tr>
+		<td><code>
+<var>$code</var>, 
+<var>$file</var>, 
+<var>$line</var>, 
+<var>$message</var>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
