@@ -7,6 +7,8 @@ use Racoon\Api\Auth\AuthInterface;
 use Racoon\Api\Auth\NoAuthenticator;
 use Racoon\Api\Exception\Exception;
 use Racoon\Api\Response\Format\FormatterInterface;
+use Racoon\Api\Response\Generate\DetailedResponse;
+use Racoon\Api\Response\Generate\GeneratorInterface;
 use Racoon\Api\Response\Format\JsonFormatter;
 use Racoon\Router\Router;
 
@@ -44,6 +46,11 @@ class App
     protected $responseFormatter;
 
     /**
+     * @var GeneratorInterface
+     */
+    protected $responseGenerator;
+
+    /**
      * @var bool
      */
     protected $requiresSchema;
@@ -54,6 +61,7 @@ class App
         $this->authenticator = new NoAuthenticator();
         $this->router = new Router();
         $this->responseFormatter = new JsonFormatter();
+        $this->responseGenerator = new DetailedResponse();
         $this->setRequiresSchema(false);
     }
 
@@ -62,16 +70,13 @@ class App
     {
         $reflectionClass = new \ReflectionClass($this->getRequestClass());
         $this->request = $reflectionClass->newInstance();
+        $this->getResponseGenerator()->setRequest($this->request);
     }
 
 
     public function run()
     {
         $this->createRequest();
-
-        $displayException = null;
-        $controllerResponse = null;
-        $httpResponseCode = 200;
 
         try {
             $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
@@ -83,15 +88,11 @@ class App
                 ->setUri($uri);
             $this->authenticator->authenticate($this->request);
             $this->router->init();
-            $controllerResponse = $this->request->process($this->router, $this->getRequiresSchema());
+            $this->request->process($this->router, $this->getRequiresSchema());
         } catch (\Exception $e) {
             if (method_exists($e, 'shouldDisplayAsError') && is_callable([$e, 'shouldDisplayAsError'])) {
                 if ($e->shouldDisplayAsError()) {
-                    $displayException = $e;
-                    $httpResponseCode = $e->getCode();
-                    if ($httpResponseCode === 0) {
-                        $httpResponseCode = 500;
-                    }
+                    $this->request->setDisplayException($e);
                 } else {
                     throw $e;
                 }
@@ -100,7 +101,9 @@ class App
 
         $this->request->setEndTime(microtime(true));
 
-        $response = $this->generateResponse($controllerResponse, $displayException);
+        $response = $this->getResponseGenerator()->generate();
+        $httpResponseCode = $this->getResponseGenerator()->getHttpResponseCode();
+
         $formattedResponse = null;
 
         try {
@@ -121,32 +124,6 @@ class App
         http_response_code($httpResponseCode);
 
         echo $formattedResponse;
-    }
-
-
-    /**
-     * @param null $controllerResponse
-     * @param Exception|null $exception
-     * @return \stdClass
-     */
-    protected function generateResponse($controllerResponse = null, Exception $exception = null)
-    {
-        $response = new \stdClass();
-        $response->success = (! is_object($exception));
-        $response->message = $this->getRequest()->getResponseMessage();
-        if (is_object($exception)) {
-            $response->message = $exception->getMessage();
-        }
-        if (is_object($this->getRequest()->getSchema())) {
-            $response->schema = $this->getRequest()->getSchema()->getDefinition();
-        } else {
-            $response->schema = null;
-        }
-        $response->received = $this->request->getFullRequestData();
-        $response->time_elapsed = number_format($this->request->getElapsedTime(true), 3);
-        $response->response = $controllerResponse;
-
-        return $response;
     }
 
 
@@ -210,6 +187,24 @@ class App
     public function setResponseFormatter($responseFormatter)
     {
         $this->responseFormatter = $responseFormatter;
+    }
+
+
+    /**
+     * @return GeneratorInterface
+     */
+    public function getResponseGenerator()
+    {
+        return $this->responseGenerator;
+    }
+
+
+    /**
+     * @param GeneratorInterface $responseGenerator
+     */
+    public function setResponseGenerator($responseGenerator)
+    {
+        $this->responseGenerator = $responseGenerator;
     }
 
 

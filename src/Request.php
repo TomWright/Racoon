@@ -57,6 +57,17 @@ class Request
      */
     protected $responseMessage;
 
+    /**
+     * @var mixed
+     */
+    protected $controllerResponse;
+
+    /**
+     * An exception to be displayed to the user.
+     * @var \Exception
+     */
+    protected $displayException;
+
     public function __construct()
     {
         $this->setStartTime(microtime(true));
@@ -228,7 +239,9 @@ class Request
             throw $e;
         }
 
-        return $controllerResponse;
+        $this->setControllerResponse($controllerResponse);
+
+        return $this;
     }
 
 
@@ -336,6 +349,42 @@ class Request
     public function setResponseMessage($responseMessage)
     {
         $this->responseMessage = $responseMessage;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getControllerResponse()
+    {
+        return $this->controllerResponse;
+    }
+
+
+    /**
+     * @param mixed $controllerResponse
+     */
+    protected function setControllerResponse($controllerResponse)
+    {
+        $this->controllerResponse = $controllerResponse;
+    }
+
+
+    /**
+     * @return \Exception
+     */
+    public function getDisplayException()
+    {
+        return $this->displayException;
+    }
+
+
+    /**
+     * @param \Exception $displayException
+     */
+    public function setDisplayException($displayException)
+    {
+        $this->displayException = $displayException;
     }
 
 }
