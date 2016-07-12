@@ -2,3 +2,4 @@
 /.idea/*
 /.idea/workspace.xml
 /test_root/
+coverage/*
