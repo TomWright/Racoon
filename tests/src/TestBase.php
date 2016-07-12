@@ -18,11 +18,6 @@ class TestBase extends PHPUnit_Framework_TestCase
     {
         $app = new TestApp();
 
-        $auth = new ApiKeyAuthenticator();
-        $auth->addValidApiKey('valid');
-
-        $app->setAuthenticator($auth);
-
         $request = new stdClass();
         foreach ($baseData as $key => $val) {
             $request->{$key} = $val;
