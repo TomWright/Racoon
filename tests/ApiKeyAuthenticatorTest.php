@@ -1,50 +1,51 @@
 <?php
 
-
-use Racoon\Api\App;
 use Racoon\Api\Auth\ApiKeyAuthenticator;
 use Racoon\Api\Exception\AuthenticationException;
+use Racoon\Api\Test\TestBase;
 
-class ApiKeyAuthenticatorTest extends PHPUnit_Framework_TestCase
+class ApiKeyAuthenticatorTest extends TestBase
 {
 
-    public function testApiKeyAuthenticatorKeys()
+    protected function getApp(array $requestData = [], array $baseData = [])
     {
-        $app = new App();
+        $app = parent::getApp($requestData, $baseData);
+        $auth = new ApiKeyAuthenticator();
+        $auth->addValidApiKey('valid');
+        $app->setAuthenticator($auth);
+        return $app;
+    }
 
-        $authenticator = new ApiKeyAuthenticator();
-        $authenticator->addValidApiKey('this_is_valid');
 
-        $app->setAuthenticator($authenticator);
-        $app->createRequest();
-
-        $request = $app->getRequest();
-        $requestData = new stdClass();
-        $requestData->api_key = 'this_is_invalid';
-        $requestData->request = new stdClass();
-        $request->setRequest($requestData);
-
-        $valid = null;
+    public function testApiKeyValidatorValid()
+    {
+        $valid = true;
+        $app = $this->getApp([], ['api_key' => 'valid']);
         try {
-            $valid = $authenticator->authenticate($app->getRequest());
-        } catch (AuthenticationException $e) {
-            $valid = false;
-        }
-        $this->assertFalse($valid);
-
-        $request = $app->getRequest();
-        $requestData = new stdClass();
-        $requestData->api_key = 'this_is_valid';
-        $requestData->request = new stdClass();
-        $request->setRequest($requestData);
-
-        $valid = null;
-        try {
-            $valid = $authenticator->authenticate($app->getRequest());
+            $output = $app->run();
+            if (strpos($output, 'Invalid API Key') !== false) {
+                $valid = false;
+            }
         } catch (AuthenticationException $e) {
             $valid = false;
         }
         $this->assertTrue($valid);
+    }
+
+
+    public function testApiKeyValidatorInvalid()
+    {
+        $valid = true;
+        $app = $this->getApp([], ['api_key' => 'invalid']);
+        try {
+            $output = $app->run();
+            if (strpos($output, 'Invalid API Key') !== false) {
+                $valid = false;
+            }
+        } catch (AuthenticationException $e) {
+            $valid = false;
+        }
+        $this->assertFalse($valid);
     }
 
 }
