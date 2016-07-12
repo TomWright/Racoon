@@ -147,7 +147,9 @@ class App
         if ($contentType !== null) {
             header("Content-Type: {$contentType}");
         }
-        http_response_code($httpResponseCode);
+        if (! headers_sent()) {
+            http_response_code($httpResponseCode);
+        }
 
         echo $formattedResponse;
     }
