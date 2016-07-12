@@ -96,22 +96,34 @@ class App
 
 
     /**
+     * @throws Exception\InvalidJsonException
+     */
+    protected function setupRequest()
+    {
+        $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
+        $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
+        $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
+
+        $this->request
+            ->setRequestJson($json)
+            ->setHttpMethod($requestMethod)
+            ->setUri($uri);
+    }
+
+
+    /**
      * Runs the Application.
      * @throws Exception
      * @throws \Exception
      */
     public function run()
     {
-        $this->createRequest();
+        if ($this->getRequest() === null) {
+            $this->createRequest();
+        }
 
         try {
-            $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
-            $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
-            $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
-            $this->request
-                ->setRequestJson($json)
-                ->setHttpMethod($requestMethod)
-                ->setUri($uri);
+            $this->setupRequest();
             $this->authenticator->authenticate($this->request);
             $this->router->init();
             $this->request->process($this->router, $this->getRequiresSchema());
