@@ -11,10 +11,10 @@ class TestBase extends PHPUnit_Framework_TestCase
 
     /**
      * @param array $requestData
-     * @param string $apiKey
+     * @param array $baseData
      * @return TestApp
      */
-    public function getApp(array $requestData = [], $apiKey = 'valid')
+    protected function getApp(array $requestData = [], array $baseData = [])
     {
         $app = new TestApp();
 
@@ -24,9 +24,11 @@ class TestBase extends PHPUnit_Framework_TestCase
         $app->setAuthenticator($auth);
 
         $request = new stdClass();
-        $request->api_key = $apiKey;
-        $request->request = new stdClass();
+        foreach ($baseData as $key => $val) {
+            $request->{$key} = $val;
+        }
 
+        $request->request = new stdClass();
         foreach ($requestData as $key => $val) {
             $request->request->{$key} = $val;
         }
@@ -34,8 +36,6 @@ class TestBase extends PHPUnit_Framework_TestCase
         $app->setUri('/');
         $app->setHttpMethod('GET');
         $app->setJsonString(json_encode($request));
-
-        $app->createRequest();
 
         return $app;
     }
