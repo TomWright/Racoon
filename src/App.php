@@ -156,10 +156,10 @@ class App
         }
 
         $contentType = $this->responseFormatter->getContentType();
-        if ($contentType !== null) {
-            header("Content-Type: {$contentType}");
-        }
         if (! headers_sent()) {
+            if ($contentType !== null) {
+                header("Content-Type: {$contentType}");
+            }
             http_response_code($httpResponseCode);
         }
 
