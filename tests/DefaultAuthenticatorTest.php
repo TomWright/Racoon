@@ -1,7 +1,6 @@
 <?php
 
 
-use Racoon\Api\App;
 use Racoon\Api\Test\TestBase;
 
 class DefaultAuthenticatorTest extends TestBase

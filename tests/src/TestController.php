@@ -24,4 +24,10 @@ class TestController extends Controller
         return 123;
     }
 
+
+    public function sayHello()
+    {
+        return 'hello';
+    }
+
 }
