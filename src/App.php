@@ -6,6 +6,7 @@ namespace Racoon\Api;
 use Racoon\Api\Auth\AuthInterface;
 use Racoon\Api\Auth\NoAuthenticator;
 use Racoon\Api\Exception\Exception;
+use Racoon\Api\Exception\InvalidJsonException;
 use Racoon\Api\Response\Format\FormatterInterface;
 use Racoon\Api\Response\Generate\DetailedResponse;
 use Racoon\Api\Response\Generate\GeneratorInterface;
@@ -24,6 +25,13 @@ class App
      * @var string
      */
     protected $jsonKeyName = 'json';
+
+    /**
+     * Where Racoon is going to look for the json input data.
+     * Available values: request, body
+     * @var string
+     */
+    protected $jsonInputMethod = 'request';
 
     /**
      * The Authenticator that should be used by the application.
@@ -100,7 +108,7 @@ class App
      */
     protected function setupRequest()
     {
-        $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
+        $json = $this->getJsonStringFromRequest();
         $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
         $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
 
@@ -108,6 +116,28 @@ class App
             ->setRequestJson($json)
             ->setHttpMethod($requestMethod)
             ->setUri($uri);
+    }
+
+
+    /**
+     * @return string|null
+     */
+    protected function getJsonStringFromRequest()
+    {
+        $json = null;
+        $jsonInputMethod = $this->getJsonInputMethod();
+
+        switch ($jsonInputMethod) {
+            case 'request':
+                $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
+                break;
+
+            case 'body':
+                $json = stream_get_contents(STDIN);
+                break;
+        }
+
+        return $json;
     }
 
 
@@ -304,6 +334,35 @@ class App
     public function setRequiresSchema($requiresSchema)
     {
         $this->requiresSchema = $requiresSchema;
+    }
+
+
+    /**
+     * Returns where Racoon is going to look for the json input data.
+     * @return string
+     */
+    public function getJsonInputMethod()
+    {
+        return $this->jsonInputMethod;
+    }
+
+
+    /**
+     * Sets where Racoon is going to look for the json input data.
+     * @param string $jsonInputMethod
+     * @throws InvalidJsonException
+     */
+    public function setJsonInputMethod($jsonInputMethod)
+    {
+        $validMethods = [
+            'request',
+            'body',
+        ];
+        if (! in_array($jsonInputMethod, $validMethods)) {
+            $validMethodsString = implode(', ', $validMethods);
+            throw new InvalidJsonException($this->getRequest(), "Invalid JSON Input Method: {$jsonInputMethod}. Must be one of: {$validMethodsString}");
+        }
+        $this->jsonInputMethod = $jsonInputMethod;
     }
 
 }

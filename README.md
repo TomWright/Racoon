@@ -320,9 +320,6 @@ The data that was returned by the Controller.
 In addition to the above, if an `Exception` is thrown that is set up to return the error, the `code` of that `Exception` will be used to set the HTTP response code.
 
 
-## Planned Features
-- The ability to pass request JSON to the API in the POST body as well as in the URL.
-
 [racoon/router]: https://github.com/TomWright/RacoonRouter
 [nikic/fast-route]: https://github.com/nikic/FastRoute
 [fastroute-route-docs]: https://github.com/nikic/FastRoute#defining-routes
