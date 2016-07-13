@@ -22,4 +22,11 @@ class JsonResponseFormatterTest extends TestBase
         $this->assertTrue(is_object($output));
     }
 
+    
+    public function testControllerResponseFormatterIsJson()
+    {
+        $app = $this->getApp();
+        $this->assertTrue(is_a($app->getResponseFormatter(), '\\Racoon\\Api\\Response\\Format\\JsonFormatter'));
+    }
+
 }
