@@ -17,7 +17,7 @@ class JsonFormatter implements FormatterInterface
     {
         $formattedResponse = json_encode($response);
 
-        if ($formattedResponse === null) {
+        if ($formattedResponse === false) {
             throw new ResponseFormattingException(null, 'Could not JSON encode the response.');
         }
 
