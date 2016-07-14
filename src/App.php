@@ -133,7 +133,7 @@ class App
                 break;
 
             case 'body':
-                $json = stream_get_contents(STDIN);
+                $json = file_get_contents('php://input');
                 break;
         }
 
