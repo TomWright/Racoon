@@ -162,9 +162,11 @@ class App
                 if ($e->shouldDisplayAsError()) {
                     $this->request->setDisplayException($e);
                 } else {
+                    http_response_code(500);
                     throw $e;
                 }
             } else {
+                http_response_code(500);
                 throw $e;
             }
         }
@@ -184,6 +186,7 @@ class App
                 $e->setRequest($this);
             }
 
+            http_response_code(500);
             throw $e;
         }
 
