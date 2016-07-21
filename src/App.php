@@ -164,6 +164,8 @@ class App
                 } else {
                     throw $e;
                 }
+            } else {
+                throw $e;
             }
         }
 
