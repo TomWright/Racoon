@@ -75,6 +75,41 @@ class Request
 
 
     /**
+     * Returns a piece of optional data from the input data.
+     * @param string $name
+     * @param null|mixed $default
+     * @return mixed|null
+     */
+    public function getOptionalRequestData($name, $default = null)
+    {
+        $data = $this->getRequestData();
+        $result = $default;
+        if (isset($data->{$name}) && mb_strlen($data->{$name}, 'UTF-8') > 0) {
+            $result = $data->{$name};
+        }
+        return $result;
+    }
+
+
+    /**
+     * Returns a piece of required data from the input data.
+     * @param string $name
+     * @param string $errorMessage The error message to be shown to the user. [parameter] will be replaced with the missing parameter name.
+     * @return mixed|null
+     * @throws Exception
+     */
+    public function getRequiredRequestData($name, $errorMessage = 'Missing required parameter: [parameter]')
+    {
+        $result = $this->getOptionalRequestData($name, null);
+        if ($result === null) {
+            $errorMessage = str_replace('[parameter]', $name, $errorMessage);
+            throw new \Racoon\Api\Exception\Exception($this, true, $errorMessage, 400);
+        }
+        return $result;
+    }
+
+
+    /**
      * @param bool $fullRequest
      * @return null|object
      */

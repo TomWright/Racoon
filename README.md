@@ -252,6 +252,18 @@ class Request extends \Racoon\Api\Request
 $app->setRequestClass('\\MyApp\\Request');
 ```
 
+### Fetching Request Data
+You can get the input data by using `$request->getRequestData()`, however there are also 2 helper methods to streamline things for you a little in the Controller.
+
+```php
+// Fetches the username from the input data, and if it doesn't exist it will return 'unknown'.
+$request->getOptionalRequestData('username', 'unknown');
+
+// Fetches the username from the input data.
+// If it doesn't exist or has a length of 0, an error message will be shown to the client.
+$request->getRequiredRequestData('username');
+```
+
 ## Using the API
 Using the API is simple.
 
