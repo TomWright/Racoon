@@ -134,7 +134,7 @@
 		<b>Namespace:</b> <a href="namespace-Racoon.html">Racoon</a>\<a href="namespace-Racoon.Api.html">Api</a><br>
 		<b>Package:</b> Racoon\Api<br>
 
-			<b>Located at</b> <a href="source-class-Racoon.Api.App.html#15-295" title="Go to source code">App.php</a>
+			<b>Located at</b> <a href="source-class-Racoon.Api.App.html#16-373" title="Go to source code">App.php</a>
 		<br>
 	</div>
 
@@ -154,7 +154,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#72-84" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#80-92" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			<p>App constructor.
@@ -186,7 +186,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createRequest">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#87-95" title="Go to source code">createRequest</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#95-103" title="Go to source code">createRequest</a>( )</code>
 
 		<div class="description short">
 			<p>Creates the Request for Racoon to use.</p>
@@ -197,6 +197,74 @@ Set some default options.</p>
 
 
 
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setupRequest" id="_setupRequest">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setupRequest">#</a>
+		<code><a href="source-class-Racoon.Api.App.html#106-119" title="Go to source code">setupRequest</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Racoon.Api.Exception.InvalidJsonException.html">Racoon\Api\Exception\InvalidJsonException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getJsonStringFromRequest" id="_getJsonStringFromRequest">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getJsonStringFromRequest">#</a>
+		<code><a href="source-class-Racoon.Api.App.html#122-141" title="Go to source code">getJsonStringFromRequest</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null
+				</div>
 
 
 
@@ -216,7 +284,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_run">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#98-153" title="Go to source code">run</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#144-202" title="Go to source code">run</a>( )</code>
 
 		<div class="description short">
 			<p>Runs the Application.</p>
@@ -251,7 +319,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getJsonKeyName">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#156-163" title="Go to source code">getJsonKeyName</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#205-212" title="Go to source code">getJsonKeyName</a>( )</code>
 
 		<div class="description short">
 			<p>Returns where Racoon should look in the GET / POST array for the JSON request string.</p>
@@ -285,7 +353,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setJsonKeyName">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#166-173" title="Go to source code">setJsonKeyName</a>( <span>string <var>$jsonKeyName</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#215-222" title="Go to source code">setJsonKeyName</a>( <span>string <var>$jsonKeyName</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets where Racoon should look in the GET / POST array for the JSON request string.</p>
@@ -320,7 +388,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getAuthenticator">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#176-183" title="Go to source code">getAuthenticator</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#225-232" title="Go to source code">getAuthenticator</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the Authenticator that should be used by the application.</p>
@@ -354,7 +422,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAuthenticator">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#186-193" title="Go to source code">setAuthenticator</a>( <span><code><a href="class-Racoon.Api.Auth.AuthInterface.html">Racoon\Api\Auth\AuthInterface</a></code> <var>$authenticator</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#235-242" title="Go to source code">setAuthenticator</a>( <span><code><a href="class-Racoon.Api.Auth.AuthInterface.html">Racoon\Api\Auth\AuthInterface</a></code> <var>$authenticator</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the Authenticator that should be used by the application.</p>
@@ -389,7 +457,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRouter">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#196-203" title="Go to source code">getRouter</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#245-252" title="Go to source code">getRouter</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the Router being used by the Application.</p>
@@ -423,7 +491,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResponseFormatter">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#206-213" title="Go to source code">getResponseFormatter</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#255-262" title="Go to source code">getResponseFormatter</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the Formatter to be used by Racoon when formatting the request response.</p>
@@ -457,7 +525,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setResponseFormatter">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#216-223" title="Go to source code">setResponseFormatter</a>( <span><code><a href="class-Racoon.Api.Response.Format.FormatterInterface.html">Racoon\Api\Response\Format\FormatterInterface</a></code> <var>$responseFormatter</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#265-272" title="Go to source code">setResponseFormatter</a>( <span><code><a href="class-Racoon.Api.Response.Format.FormatterInterface.html">Racoon\Api\Response\Format\FormatterInterface</a></code> <var>$responseFormatter</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the Formatter to be used by Racoon when formatting the request response.</p>
@@ -492,7 +560,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResponseGenerator">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#226-233" title="Go to source code">getResponseGenerator</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#275-282" title="Go to source code">getResponseGenerator</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the Generator to be used by Racoon when putting the request response together.</p>
@@ -526,7 +594,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setResponseGenerator">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#236-243" title="Go to source code">setResponseGenerator</a>( <span><code><a href="class-Racoon.Api.Response.Generate.GeneratorInterface.html">Racoon\Api\Response\Generate\GeneratorInterface</a></code> <var>$responseGenerator</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#285-292" title="Go to source code">setResponseGenerator</a>( <span><code><a href="class-Racoon.Api.Response.Generate.GeneratorInterface.html">Racoon\Api\Response\Generate\GeneratorInterface</a></code> <var>$responseGenerator</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the Generator to be used by Racoon when putting the request response together.</p>
@@ -561,7 +629,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRequestClass">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#246-253" title="Go to source code">getRequestClass</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#295-302" title="Go to source code">getRequestClass</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the name of the Request class Racoon should use.</p>
@@ -595,7 +663,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRequestClass">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#256-263" title="Go to source code">setRequestClass</a>( <span>string <var>$requestClass</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#305-312" title="Go to source code">setRequestClass</a>( <span>string <var>$requestClass</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the name of the Request class Racoon should use.</p>
@@ -630,7 +698,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRequest">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#266-273" title="Go to source code">getRequest</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#315-322" title="Go to source code">getRequest</a>( )</code>
 
 		<div class="description short">
 			<p>Returns the current Request being used by Racoon.</p>
@@ -664,7 +732,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRequiresSchema">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#276-283" title="Go to source code">getRequiresSchema</a>( )</code>
+		<code><a href="source-class-Racoon.Api.App.html#325-332" title="Go to source code">getRequiresSchema</a>( )</code>
 
 		<div class="description short">
 			<p>Returns whether or not a Schema is required for the current Request.</p>
@@ -698,7 +766,7 @@ Set some default options.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRequiresSchema">#</a>
-		<code><a href="source-class-Racoon.Api.App.html#286-293" title="Go to source code">setRequiresSchema</a>( <span>boolean <var>$requiresSchema</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.App.html#335-342" title="Go to source code">setRequiresSchema</a>( <span>boolean <var>$requiresSchema</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets whether or not a Schema is required for the current Request.</p>
@@ -715,6 +783,79 @@ Set some default options.</p>
 				</dl></div>
 
 
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getJsonInputMethod" id="_getJsonInputMethod">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getJsonInputMethod">#</a>
+		<code><a href="source-class-Racoon.Api.App.html#345-352" title="Go to source code">getJsonInputMethod</a>( )</code>
+
+		<div class="description short">
+			<p>Returns where Racoon is going to look for the json input data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns where Racoon is going to look for the json input data.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setJsonInputMethod" id="_setJsonInputMethod">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setJsonInputMethod">#</a>
+		<code><a href="source-class-Racoon.Api.App.html#355-371" title="Go to source code">setJsonInputMethod</a>( <span>string <var>$jsonInputMethod</var></span> )</code>
+
+		<div class="description short">
+			<p>Sets where Racoon is going to look for the json input data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sets where Racoon is going to look for the json input data.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$jsonInputMethod</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Racoon.Api.Exception.InvalidJsonException.html">Racoon\Api\Exception\InvalidJsonException</a></code>
+				</div>
 
 
 
@@ -743,7 +884,7 @@ Set some default options.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#22-26" title="Go to source code"><var>$jsonKeyName</var></a>
+				<a href="source-class-Racoon.Api.App.html#23-27" title="Go to source code"><var>$jsonKeyName</var></a>
 
 			<div class="description short">
 				<p>Where Racoon should look in the GET / POST array for the JSON request string.</p>
@@ -761,6 +902,33 @@ Set some default options.</p>
 			</div>
 		</td>
 	</tr>
+	<tr data-order="jsonInputMethod" id="$jsonInputMethod">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Racoon.Api.App.html#29-34" title="Go to source code"><var>$jsonInputMethod</var></a>
+
+			<div class="description short">
+				<p>Where Racoon is going to look for the json input data.
+Available values: request, body</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Where Racoon is going to look for the json input data.
+Available values: request, body</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$jsonInputMethod" class="anchor">#</a>
+				<code><span class="php-quote">'request'</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="authenticator" id="$authenticator">
 		<td class="attributes"><code>
 			protected  
@@ -768,7 +936,7 @@ Set some default options.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#28-32" title="Go to source code"><var>$authenticator</var></a>
+				<a href="source-class-Racoon.Api.App.html#36-40" title="Go to source code"><var>$authenticator</var></a>
 
 			<div class="description short">
 				<p>The Authenticator that should be used by the application.</p>
@@ -793,7 +961,7 @@ Set some default options.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#34-38" title="Go to source code"><var>$request</var></a>
+				<a href="source-class-Racoon.Api.App.html#42-46" title="Go to source code"><var>$request</var></a>
 
 			<div class="description short">
 				<p>The current Request in the Racoon Application.</p>
@@ -818,7 +986,7 @@ Set some default options.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#40-45" title="Go to source code"><var>$requestClass</var></a>
+				<a href="source-class-Racoon.Api.App.html#48-53" title="Go to source code"><var>$requestClass</var></a>
 
 			<div class="description short">
 				<p>The name of the Request class Racoon should use.
@@ -845,7 +1013,7 @@ This allows you to add additional functionality to the Request.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#47-51" title="Go to source code"><var>$router</var></a>
+				<a href="source-class-Racoon.Api.App.html#55-59" title="Go to source code"><var>$router</var></a>
 
 			<div class="description short">
 				<p>The current Router object being used by the Application.</p>
@@ -870,7 +1038,7 @@ This allows you to add additional functionality to the Request.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#53-57" title="Go to source code"><var>$responseFormatter</var></a>
+				<a href="source-class-Racoon.Api.App.html#61-65" title="Go to source code"><var>$responseFormatter</var></a>
 
 			<div class="description short">
 				<p>The Formatter to be used by Racoon when formatting the request response.</p>
@@ -895,7 +1063,7 @@ This allows you to add additional functionality to the Request.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#59-63" title="Go to source code"><var>$responseGenerator</var></a>
+				<a href="source-class-Racoon.Api.App.html#67-71" title="Go to source code"><var>$responseGenerator</var></a>
 
 			<div class="description short">
 				<p>The Generator to be used by Racoon when putting the request response together.</p>
@@ -920,7 +1088,7 @@ This allows you to add additional functionality to the Request.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Racoon.Api.App.html#65-69" title="Go to source code"><var>$requiresSchema</var></a>
+				<a href="source-class-Racoon.Api.App.html#73-77" title="Go to source code"><var>$requiresSchema</var></a>
 
 			<div class="description short">
 				<p>Defines whether or not the Controller requires a Schema to be set.</p>

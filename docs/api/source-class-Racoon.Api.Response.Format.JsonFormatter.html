@@ -102,7 +102,6 @@
 				<li><a href="class-Racoon.Api.Exception.InvalidRouteException.html">Racoon\Api\Exception\InvalidRouteException</a></li>
 				<li><a href="class-Racoon.Api.Exception.NotFoundException.html">Racoon\Api\Exception\NotFoundException</a></li>
 				<li><a href="class-Racoon.Api.Exception.ResponseFormattingException.html">Racoon\Api\Exception\ResponseFormattingException</a></li>
-				<li><a href="class-Racoon.Api.Exception.RouterException.html">Racoon\Api\Exception\RouterException</a></li>
 			</ul>
 
 
@@ -155,7 +154,7 @@
 </span><span id="17" class="l"><a href="#17">17: </a>    {
 </span><span id="18" class="l"><a href="#18">18: </a>        <span class="php-var">$formattedResponse</span> = <span class="php-keyword2">json_encode</span>(<span class="php-var">$response</span>);
 </span><span id="19" class="l"><a href="#19">19: </a>
-</span><span id="20" class="l"><a href="#20">20: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$formattedResponse</span> === <span class="php-keyword1">null</span>) {
+</span><span id="20" class="l"><a href="#20">20: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$formattedResponse</span> === <span class="php-keyword1">false</span>) {
 </span><span id="21" class="l"><a href="#21">21: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> ResponseFormattingException(<span class="php-keyword1">null</span>, <span class="php-quote">'Could not JSON encode the response.'</span>);
 </span><span id="22" class="l"><a href="#22">22: </a>        }
 </span><span id="23" class="l"><a href="#23">23: </a>
@@ -178,6 +177,6 @@
 </div>
 </div>
 <script src="resources/combined.js?cd021bc814832c24a7cec5319ea03335bfba1caf"></script>
-<script src="elementlist.js?874ac6a2aff650dcffd04d84782c4bcab5d83745"></script>
+<script src="elementlist.js?216a923b00fee6fccac05b9391b6c77909c729c6"></script>
 </body>
 </html>

@@ -131,7 +131,7 @@
 		<b>Namespace:</b> <a href="namespace-Racoon.html">Racoon</a>\<a href="namespace-Racoon.Api.html">Api</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Racoon.Api.Request.html#12-390" title="Go to source code">Request.php</a>
+			<b>Located at</b> <a href="source-class-Racoon.Api.Request.html#12-425" title="Go to source code">Request.php</a>
 		<br>
 	</div>
 
@@ -169,6 +169,92 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="getOptionalRequestData" id="_getOptionalRequestData">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getOptionalRequestData">#</a>
+		<code><a href="source-class-Racoon.Api.Request.html#77-91" title="Go to source code">getOptionalRequestData</a>( <span>string <var>$name</var></span>, <span>null|mixed <var>$default</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Returns a piece of optional data from the input data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns a piece of optional data from the input data.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+					<dt><var>$default</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRequiredRequestData" id="_getRequiredRequestData">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRequiredRequestData">#</a>
+		<code><a href="source-class-Racoon.Api.Request.html#94-109" title="Go to source code">getRequiredRequestData</a>( <span>string <var>$name</var></span>, <span>string <var>$errorMessage</var> = <span class="php-quote">'Missing required parameter: [parameter]'</span></span> )</code>
+
+		<div class="description short">
+			<p>Returns a piece of required data from the input data.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns a piece of required data from the input data.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+					<dt><var>$errorMessage</var></dt>
+					<dd>The error message to be shown to the user. [parameter] will be replaced with the missing parameter name.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed|null
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Racoon.Api.Exception.Exception.html">Racoon\Api\Exception\Exception</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="getRequestData" id="_getRequestData">
 
 		<td class="attributes"><code>
@@ -181,7 +267,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRequestData">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#77-88" title="Go to source code">getRequestData</a>( <span>boolean <var>$fullRequest</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#112-123" title="Go to source code">getRequestData</a>( <span>boolean <var>$fullRequest</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -220,7 +306,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getFullRequestData">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#91-97" title="Go to source code">getFullRequestData</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#126-132" title="Go to source code">getFullRequestData</a>( )</code>
 
 		<div class="description short">
 			
@@ -254,7 +340,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRequest">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#100-108" title="Go to source code">setRequest</a>( <span>null|object <var>$request</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#135-143" title="Go to source code">setRequest</a>( <span>null|object <var>$request</var></span> )</code>
 
 		<div class="description short">
 			
@@ -293,7 +379,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRequestJson">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#111-134" title="Go to source code">setRequestJson</a>( <span>string|null <var>$json</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#146-169" title="Go to source code">setRequestJson</a>( <span>string|null <var>$json</var></span> )</code>
 
 		<div class="description short">
 			
@@ -336,7 +422,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getJsonString">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#137-143" title="Go to source code">getJsonString</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#172-178" title="Go to source code">getJsonString</a>( )</code>
 
 		<div class="description short">
 			
@@ -370,7 +456,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setJsonString">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#146-154" title="Go to source code">setJsonString</a>( <span>null|string <var>$jsonString</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#181-189" title="Go to source code">setJsonString</a>( <span>null|string <var>$jsonString</var></span> )</code>
 
 		<div class="description short">
 			
@@ -409,7 +495,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getHttpMethod">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#157-163" title="Go to source code">getHttpMethod</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#192-198" title="Go to source code">getHttpMethod</a>( )</code>
 
 		<div class="description short">
 			
@@ -443,7 +529,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setHttpMethod">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#166-174" title="Go to source code">setHttpMethod</a>( <span>string <var>$httpMethod</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#201-209" title="Go to source code">setHttpMethod</a>( <span>string <var>$httpMethod</var></span> )</code>
 
 		<div class="description short">
 			
@@ -482,7 +568,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUri">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#177-183" title="Go to source code">getUri</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#212-218" title="Go to source code">getUri</a>( )</code>
 
 		<div class="description short">
 			
@@ -516,7 +602,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUri">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#186-194" title="Go to source code">setUri</a>( <span>string <var>$uri</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#221-229" title="Go to source code">setUri</a>( <span>string <var>$uri</var></span> )</code>
 
 		<div class="description short">
 			
@@ -555,7 +641,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_process">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#197-245" title="Go to source code">process</a>( <span>Racoon\Router\Router <var>$router</var></span>, <span>boolean <var>$requiresSchema</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#232-280" title="Go to source code">process</a>( <span>Racoon\Router\Router <var>$router</var></span>, <span>boolean <var>$requiresSchema</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>Process the current request.</p>
@@ -600,7 +686,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getStartTime">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#248-254" title="Go to source code">getStartTime</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#283-289" title="Go to source code">getStartTime</a>( )</code>
 
 		<div class="description short">
 			
@@ -634,7 +720,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setStartTime">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#257-263" title="Go to source code">setStartTime</a>( <span>float <var>$startTime</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#292-298" title="Go to source code">setStartTime</a>( <span>float <var>$startTime</var></span> )</code>
 
 		<div class="description short">
 			
@@ -669,7 +755,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getEndTime">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#266-272" title="Go to source code">getEndTime</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#301-307" title="Go to source code">getEndTime</a>( )</code>
 
 		<div class="description short">
 			
@@ -703,7 +789,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setEndTime">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#275-281" title="Go to source code">setEndTime</a>( <span>float <var>$endTime</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#310-316" title="Go to source code">setEndTime</a>( <span>float <var>$endTime</var></span> )</code>
 
 		<div class="description short">
 			
@@ -738,7 +824,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getElapsedTime">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#284-298" title="Go to source code">getElapsedTime</a>( <span> <var>$convertToMs</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#319-333" title="Go to source code">getElapsedTime</a>( <span> <var>$convertToMs</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>null|float</p>
@@ -768,7 +854,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getSchema">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#301-307" title="Go to source code">getSchema</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#336-342" title="Go to source code">getSchema</a>( )</code>
 
 		<div class="description short">
 			
@@ -802,7 +888,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setSchema">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#310-316" title="Go to source code">setSchema</a>( <span><code><a href="class-Racoon.Api.Schema.Schema.html">Racoon\Api\Schema\Schema</a></code> <var>$schema</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#345-351" title="Go to source code">setSchema</a>( <span><code><a href="class-Racoon.Api.Schema.Schema.html">Racoon\Api\Schema\Schema</a></code> <var>$schema</var></span> )</code>
 
 		<div class="description short">
 			
@@ -837,7 +923,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDispatcherResult">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#319-325" title="Go to source code">getDispatcherResult</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#354-360" title="Go to source code">getDispatcherResult</a>( )</code>
 
 		<div class="description short">
 			
@@ -871,7 +957,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDispatcherResult">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#328-334" title="Go to source code">setDispatcherResult</a>( <span>Racoon\Router\DispatcherResult <var>$dispatcherResult</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#363-369" title="Go to source code">setDispatcherResult</a>( <span>Racoon\Router\DispatcherResult <var>$dispatcherResult</var></span> )</code>
 
 		<div class="description short">
 			
@@ -906,7 +992,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResponseMessage">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#337-343" title="Go to source code">getResponseMessage</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#372-378" title="Go to source code">getResponseMessage</a>( )</code>
 
 		<div class="description short">
 			
@@ -940,7 +1026,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setResponseMessage">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#346-352" title="Go to source code">setResponseMessage</a>( <span>null|string <var>$responseMessage</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#381-387" title="Go to source code">setResponseMessage</a>( <span>null|string <var>$responseMessage</var></span> )</code>
 
 		<div class="description short">
 			
@@ -975,7 +1061,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getControllerResponse">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#355-361" title="Go to source code">getControllerResponse</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#390-396" title="Go to source code">getControllerResponse</a>( )</code>
 
 		<div class="description short">
 			
@@ -1009,7 +1095,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setControllerResponse">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#364-370" title="Go to source code">setControllerResponse</a>( <span>mixed <var>$controllerResponse</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#399-405" title="Go to source code">setControllerResponse</a>( <span>mixed <var>$controllerResponse</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1044,7 +1130,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDisplayException">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#373-379" title="Go to source code">getDisplayException</a>( )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#408-414" title="Go to source code">getDisplayException</a>( )</code>
 
 		<div class="description short">
 			
@@ -1078,7 +1164,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDisplayException">#</a>
-		<code><a href="source-class-Racoon.Api.Request.html#382-388" title="Go to source code">setDisplayException</a>( <span>Exception <var>$displayException</var></span> )</code>
+		<code><a href="source-class-Racoon.Api.Request.html#417-423" title="Go to source code">setDisplayException</a>( <span>Exception <var>$displayException</var></span> )</code>
 
 		<div class="description short">
 			
