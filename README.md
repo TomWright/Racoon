@@ -87,6 +87,29 @@ $handlerString = '\\MyApp\\Users@list';
 $r->addRoute($httpRequestMethod, $requestUri, $handlerString);
 ```
 
+#### Handler Namespaces
+
+If like me, all of your application controllers are under one namespace, you can use the following method to simplify your routes file.
+
+```php
+$r->setHandlerNamespace('\\MyApp\\Controllers');
+```
+
+Before:
+```php
+$r->addRoute('GET', '/asd', '\\MyApp\\Controllers\\Example@one');
+$r->addRoute('GET', '/fgh', '\\MyApp\\Controllers\\Example@two');
+$r->addRoute('GET', '/jkl', '\\MyApp\\Controllers\\Example@three');
+```
+
+After:
+```php
+$r->setHandlerNamespace('\\MyApp\\Controllers');
+$r->addRoute('GET', '/asd', '\\Example@one');
+$r->addRoute('GET', '/fgh', '\\Example@two');
+$r->addRoute('GET', '/jkl', '\\Example@three');
+```
+
 #### HTTP Request Method
 The HTTP Request Method(s) that the route should match. This can be any HTTP request type such as `GET` or `POST`.
 
