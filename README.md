@@ -13,7 +13,10 @@ Racoon is a basic API framework designed to make it quick and easy to put togeth
 ### Autoloading
 Racoon depends on autoloading provided by [Composer][composer]. If you do not use Composer then you will have to set up your own PSR autoloader or start using Composer.
 
-### General Code
+### Quickstart
+
+Create an application, add some routes and run the application.
+
 index.php
 ```php
 // Create an instance of Racoon
