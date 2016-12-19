@@ -5,6 +5,7 @@ namespace Racoon\Api\Schema;
 
 use Racoon\Api\Exception\InvalidArgumentException;
 use TomWright\Validator\Constraint\ConstraintGroup;
+use TomWright\Validator\Constraint\NullConstraint;
 use TomWright\Validator\Validator;
 
 class Item
