@@ -87,7 +87,7 @@ class DetailedResponse implements GeneratorInterface
             }
         }
         if ($this->shouldShowReceived()) {
-            $response->received = $this->request->getFullRequestData();
+            $response->received = $this->request->getRequestData();
         }
         if ($this->shouldShowTimeElapsed()) {
             $response->time_elapsed = number_format($this->request->getElapsedTime(true), 3);

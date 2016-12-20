@@ -115,25 +115,11 @@ class Request
 
 
     /**
-     * @param bool $fullRequest
      * @return null|object
      */
-    public function getRequestData($fullRequest = false)
+    public function getRequestData()
     {
-        if ($fullRequest) {
-            return $this->request;
-        } else {
-            return (is_object($this->request) && isset($this->request->request)) ? $this->request->request : null;
-        }
-    }
-
-
-    /**
-     * @return null|object
-     */
-    public function getFullRequestData()
-    {
-        return $this->getRequestData(true);
+        return $this->request;
     }
 
 
