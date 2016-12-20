@@ -157,6 +157,9 @@ class App
 
         $data = (object) (array_merge($getData, $postData));
         $data->files = (object) $fileData;
+        foreach ($data->files as $key => $val) {
+            $data->files->{$key} = (object) $data->files->{$key};
+        }
 
         return $data;
     }
