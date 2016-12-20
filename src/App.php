@@ -155,8 +155,8 @@ class App
         $postData = (isset($_POST) && is_array($_POST)) ? $_POST : array();
         $fileData = (isset($_FILES) && is_array($_FILES)) ? $_FILES : array();
 
-        $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : array();
-        $data = array_merge($json, $getData, $postData, array('files' => $fileData));
+        $data = (object) (array_merge($getData, $postData));
+        $data->files = (object) $fileData;
 
         return $data;
     }
