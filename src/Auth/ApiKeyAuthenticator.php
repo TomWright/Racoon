@@ -27,7 +27,7 @@ class ApiKeyAuthenticator implements AuthInterface
 
     public function __construct()
     {
-        $this->setApiKeyName('api_key');
+        $this->setApiKeyName('Api-Key');
     }
 
 
@@ -38,14 +38,12 @@ class ApiKeyAuthenticator implements AuthInterface
      */
     public function authenticate(Request $request)
     {
-        $data = $request->getFullRequestData();
-        
-        if (! (is_object($data) && isset($data->{$this->getApiKeyName()}))) {
+        $apiKey = $request->getHeader($this->getApiKeyName(), null);
+
+        if (! (is_string($apiKey) && strlen($apiKey) > 0)) {
             throw new AuthenticationException($request, 'API Key not found.');
         }
 
-        $apiKey = $data->{$this->getApiKeyName()};
-        
         if (! in_array($apiKey, $this->getValidApiKeys())) {
             throw new AuthenticationException($request, 'Invalid API Key.');
         }
