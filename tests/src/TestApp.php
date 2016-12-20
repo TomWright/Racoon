@@ -14,6 +14,16 @@ class TestApp extends App
     protected $jsonString;
 
     /**
+     * @var \stdClass
+     */
+    protected $requestData;
+
+    /**
+     * @var array
+     */
+    protected $headerData;
+
+    /**
      * @var string
      */
     protected $uri;
@@ -22,6 +32,42 @@ class TestApp extends App
      * @var string
      */
     protected $httpMethod;
+
+
+    /**
+     * @return \stdClass
+     */
+    public function getRequestData()
+    {
+        return $this->requestData;
+    }
+
+
+    /**
+     * @param \stdClass $requestData
+     */
+    public function setRequestData(\stdClass $requestData)
+    {
+        $this->requestData = $requestData;
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getHeaderData()
+    {
+        return $this->headerData;
+    }
+
+
+    /**
+     * @param array $headerData
+     */
+    public function setHeaderData(array $headerData)
+    {
+        $this->headerData = $headerData;
+    }
 
 
     /**
@@ -83,8 +129,15 @@ class TestApp extends App
      */
     protected function setupRequest()
     {
+        if ($this->jsonString !== null) {
+            $this->request->setRequestJson($this->getJsonString());
+        } else {
+            $this->request->setRequest($this->getRequestData());
+        }
+
+
         $this->request
-            ->setRequestJson($this->getJsonString())
+            ->setHeaders($this->getHeaderData())
             ->setHttpMethod($this->getHttpMethod())
             ->setUri($this->getUri());
     }

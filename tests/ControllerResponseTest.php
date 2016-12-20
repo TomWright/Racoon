@@ -10,13 +10,14 @@ class ControllerResponseTest extends TestBase
     {
         $app = $this->getApp();
         $app->setUri('/hello');
+        $app->setHttpMethod('GET');
 
         $app->getRouter()->addRouteCallable(function(RouteCollector $r) {
             $r->addRoute('GET', '/hello', '\\Racoon\\Api\\Test\\TestController@sayHello');
         });
 
-        $json = $app->run();
 
+        $json = $app->run();
         $output = json_decode($json);
 
         $valid = $output->response == 'hello';

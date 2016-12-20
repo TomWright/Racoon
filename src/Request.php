@@ -419,12 +419,16 @@ class Request
      */
     public function getHeaders()
     {
+        if (! is_array($this->headers)) {
+            $this->headers = array();
+        }
         return $this->headers;
     }
 
 
     /**
      * @param \string[] $headers
+     * @return $this
      */
     public function setHeaders($headers)
     {
@@ -432,6 +436,7 @@ class Request
             $headers = array();
         }
         $this->headers = $headers;
+        return $this;
     }
 
 
@@ -442,7 +447,8 @@ class Request
      */
     public function getHeader($header, $defaultValue = null)
     {
-        if (array_key_exists($header, $this->headers)) {
+        $headers = $this->getHeaders();
+        if (array_key_exists($header, $headers)) {
             return $this->headers[$header];
         }
         return $defaultValue;

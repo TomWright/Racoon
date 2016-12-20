@@ -8,9 +8,9 @@ use Racoon\Api\Test\TestBase;
 class ApiKeyAuthenticatorTest extends TestBase
 {
 
-    protected function getApp(array $requestData = [], array $baseData = [])
+    protected function getApp(array $requestData = [], array $headers = [])
     {
-        $app = parent::getApp($requestData, $baseData);
+        $app = parent::getApp($requestData, $headers);
         $auth = new ApiKeyAuthenticator();
         $auth->addValidApiKey('valid');
         $app->setAuthenticator($auth);
@@ -41,14 +41,16 @@ class ApiKeyAuthenticatorTest extends TestBase
     {
         $request = new Request();
         $requestData = new stdClass();
+        $headers = array();
         $auth = new ApiKeyAuthenticator();
+        $request->setRequest($requestData);
 
         $auth->setValidApiKeys(['valid1', 'valid2']);
         
         $valid = true;
         try {
-            $requestData->api_key = 'asdasdasd';
-            $request->setRequest($requestData);
+            $headers['Api-Key'] = 'asdasdasd';
+            $request->setHeaders($headers);
             $auth->authenticate($request);
         } catch (AuthenticationException $e) {
             $valid = false;
@@ -57,8 +59,8 @@ class ApiKeyAuthenticatorTest extends TestBase
 
         $valid = true;
         try {
-            $requestData->api_key = 'valid1';
-            $request->setRequest($requestData);
+            $headers['Api-Key'] = 'valid1';
+            $request->setHeaders($headers);
             $auth->authenticate($request);
         } catch (AuthenticationException $e) {
             $valid = false;
@@ -67,8 +69,8 @@ class ApiKeyAuthenticatorTest extends TestBase
 
         $valid = true;
         try {
-            $requestData->api_key = 'valid2';
-            $request->setRequest($requestData);
+            $headers['Api-Key'] = 'valid2';
+            $request->setHeaders($headers);
             $auth->authenticate($request);
         } catch (AuthenticationException $e) {
             $valid = false;
@@ -77,8 +79,8 @@ class ApiKeyAuthenticatorTest extends TestBase
 
         $valid = true;
         try {
-            $requestData->api_key = 'valid3';
-            $request->setRequest($requestData);
+            $headers['Api-Key'] = 'valid3';
+            $request->setHeaders($headers);
             $auth->authenticate($request);
         } catch (AuthenticationException $e) {
             $valid = false;
@@ -89,8 +91,8 @@ class ApiKeyAuthenticatorTest extends TestBase
 
         $valid = true;
         try {
-            $requestData->api_key = 'valid3';
-            $request->setRequest($requestData);
+            $headers['Api-Key'] = 'valid3';
+            $request->setHeaders($headers);
             $auth->authenticate($request);
         } catch (AuthenticationException $e) {
             $valid = false;
@@ -102,7 +104,7 @@ class ApiKeyAuthenticatorTest extends TestBase
     public function testApiKeyValidatorValid()
     {
         $valid = true;
-        $app = $this->getApp([], ['api_key' => 'valid']);
+        $app = $this->getApp([], ['Api-Key' => 'valid']);
         try {
             $output = $app->run();
             if (strpos($output, 'Invalid API Key') !== false) {
@@ -118,7 +120,7 @@ class ApiKeyAuthenticatorTest extends TestBase
     public function testApiKeyValidatorInvalid()
     {
         $valid = true;
-        $app = $this->getApp([], ['api_key' => 'invalid']);
+        $app = $this->getApp([], ['Api-Key' => 'invalid']);
         try {
             $output = $app->run();
             if (strpos($output, 'Invalid API Key') !== false) {

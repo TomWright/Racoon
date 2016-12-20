@@ -11,26 +11,22 @@ class TestBase extends PHPUnit_Framework_TestCase
 
     /**
      * @param array $requestData
-     * @param array $baseData
+     * @param array $headers
      * @return TestApp
      */
-    protected function getApp(array $requestData = [], array $baseData = [])
+    protected function getApp(array $requestData = [], array $headers = [])
     {
         $app = new TestApp();
 
         $request = new stdClass();
-        foreach ($baseData as $key => $val) {
-            $request->{$key} = $val;
-        }
-
-        $request->request = new stdClass();
         foreach ($requestData as $key => $val) {
-            $request->request->{$key} = $val;
+            $request->{$key} = $val;
         }
 
         $app->setUri('/');
         $app->setHttpMethod('GET');
-        $app->setJsonString(json_encode($request));
+        $app->setRequestData($request);
+        $app->setHeaderData($headers);
 
         return $app;
     }

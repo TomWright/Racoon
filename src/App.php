@@ -108,7 +108,10 @@ class App
      */
     protected function setupRequest()
     {
-        $headers = getallheaders();
+        $headers = false;
+        if (function_exists('getallheaders')) {
+            $headers = getallheaders();
+        }
         if ($headers === false) {
             $headers = array();
         }
