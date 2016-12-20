@@ -6,6 +6,7 @@ namespace Racoon\Api\Schema;
 use Racoon\Api\Exception\InvalidArgumentException;
 use TomWright\Validator\Constraint\ConstraintGroup;
 use TomWright\Validator\Constraint\NullConstraint;
+use TomWright\Validator\Constraint\StringConstraint;
 use TomWright\Validator\Validator;
 
 class Item
@@ -92,13 +93,17 @@ class Item
         if ($this->isRequired() && ! $valueExists) {
             throw new InvalidArgumentException(null, "Missing required field: {$this->getPropertyName()}");
         } elseif (! $this->isRequired()) {
-            if (! $valueExists) {
-                $this->validator->addConstraintGroup(
-                    ConstraintGroup::create([
-                        NullConstraint::create(),
-                    ])
-                );
-            } elseif (is_object($this->getOptionalConstraintGroup())) {
+            $this->validator->addConstraintGroup(
+                ConstraintGroup::create([
+                    NullConstraint::create(),
+                ])
+            );
+            $this->validator->addConstraintGroup(
+                ConstraintGroup::create([
+                    StringConstraint::create()->setMinLength(0)->setMaxLength(0),
+                ])
+            );
+            if ($valueExists && is_object($this->getOptionalConstraintGroup())) {
                 $this->validator->addConstraintGroup($this->getOptionalConstraintGroup());
             }
         }
