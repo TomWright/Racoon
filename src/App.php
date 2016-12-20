@@ -108,12 +108,26 @@ class App
      */
     protected function setupRequest()
     {
-        $json = $this->getJsonStringFromRequest();
+        $headers = getallheaders();
+        if ($headers === false) {
+            $headers = array();
+        }
+        $this->request->setHeaders($headers);
+
+        $contentType = $this->request->getHeader('Content-Type', null);
+
         $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
         $requestMethod = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : null;
 
+        if ($contentType === 'application/json') {
+            $json = $this->getJsonStringFromRequest();
+            $this->request->setRequestJson($json);
+        } else {
+            $data = $this->getRequestDataFromHttp();
+            $this->request->setRequest($data);
+        }
+
         $this->request
-            ->setRequestJson($json)
             ->setHttpMethod($requestMethod)
             ->setUri($uri);
     }
@@ -124,20 +138,24 @@ class App
      */
     protected function getJsonStringFromRequest()
     {
-        $json = null;
-        $jsonInputMethod = $this->getJsonInputMethod();
-
-        switch ($jsonInputMethod) {
-            case 'request':
-                $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : null;
-                break;
-
-            case 'body':
-                $json = file_get_contents('php://input');
-                break;
-        }
-
+        $json = file_get_contents('php://input');
         return $json;
+    }
+
+
+    /**
+     * @return array
+     */
+    protected function getRequestDataFromHttp()
+    {
+        $getData = (isset($_GET) && is_array($_GET)) ? $_GET : array();
+        $postData = (isset($_POST) && is_array($_POST)) ? $_POST : array();
+        $fileData = (isset($_FILES) && is_array($_FILES)) ? $_FILES : array();
+
+        $json = isset($_REQUEST[$this->getJsonKeyName()]) ? $_REQUEST[$this->getJsonKeyName()] : array();
+        $data = array_merge($json, $getData, $postData, array('files' => $fileData));
+
+        return $data;
     }
 
 
@@ -339,35 +357,6 @@ class App
     public function setRequiresSchema($requiresSchema)
     {
         $this->requiresSchema = $requiresSchema;
-    }
-
-
-    /**
-     * Returns where Racoon is going to look for the json input data.
-     * @return string
-     */
-    public function getJsonInputMethod()
-    {
-        return $this->jsonInputMethod;
-    }
-
-
-    /**
-     * Sets where Racoon is going to look for the json input data.
-     * @param string $jsonInputMethod
-     * @throws InvalidJsonException
-     */
-    public function setJsonInputMethod($jsonInputMethod)
-    {
-        $validMethods = [
-            'request',
-            'body',
-        ];
-        if (! in_array($jsonInputMethod, $validMethods)) {
-            $validMethodsString = implode(', ', $validMethods);
-            throw new InvalidJsonException($this->getRequest(), "Invalid JSON Input Method: {$jsonInputMethod}. Must be one of: {$validMethodsString}");
-        }
-        $this->jsonInputMethod = $jsonInputMethod;
     }
 
 }

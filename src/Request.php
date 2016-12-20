@@ -43,6 +43,11 @@ class Request
     protected $uri;
 
     /**
+     * @var string[]
+     */
+    protected $headers;
+
+    /**
      * @var Schema
      */
     protected $schema;
@@ -420,6 +425,41 @@ class Request
     public function setDisplayException($displayException)
     {
         $this->displayException = $displayException;
+    }
+
+
+    /**
+     * @return \string[]
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+
+    /**
+     * @param \string[] $headers
+     */
+    public function setHeaders($headers)
+    {
+        if (! is_array($headers)) {
+            $headers = array();
+        }
+        $this->headers = $headers;
+    }
+
+
+    /**
+     * @param string $header
+     * @param null $defaultValue
+     * @return null|string
+     */
+    public function getHeader($header, $defaultValue = null)
+    {
+        if (array_key_exists($header, $this->headers)) {
+            return $this->headers[$header];
+        }
+        return $defaultValue;
     }
 
 }
