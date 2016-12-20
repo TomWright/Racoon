@@ -89,8 +89,11 @@ class Request
     {
         $data = $this->getRequestData();
         $result = $default;
-        if (isset($data->{$name}) && mb_strlen($data->{$name}, 'UTF-8') > 0) {
+        if (isset($data->{$name})) {
             $result = $data->{$name};
+        }
+        if (is_string($result) && mb_strlen(trim($result), 'UTF-8') === 0) {
+            $result = $default;
         }
         return $result;
     }
