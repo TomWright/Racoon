@@ -35,11 +35,14 @@ class Schema
 
 
     /**
-     * @param array|Item[] $items
+     * @param array|Item[]|Translator[] $items
      */
     public function addItems(array $items)
     {
         foreach ($items as $item) {
+            if (is_a($item, Translator::class)) {
+                $item = $item->returnItem();
+            }
             $this->addItem($item);
         }
     }
