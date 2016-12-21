@@ -7,7 +7,7 @@ use Racoon\Api\Exception\InvalidArgumentException;
 use TomWright\Validator\Constraint\ConstraintGroup;
 use TomWright\Validator\Constraint\NullConstraint;
 use TomWright\Validator\Constraint\StringConstraint;
-use TomWright\Validator\Validator;
+use TomWright\Validator\ValidatorTranslator;
 
 class Item
 {
@@ -28,7 +28,7 @@ class Item
     protected $readableName;
 
     /**
-     * @var Validator
+     * @var ValidatorTranslator
      */
     protected $validator;
 
@@ -53,7 +53,7 @@ class Item
      */
     public function __construct($propertyName, $readableName, array $constraintGroups = [], $required = true, ConstraintGroup $optionalConstraintGroup = null)
     {
-        $this->validator = new Validator(null, null);
+        $this->validator = new ValidatorTranslator(null, null);
         $this->setPropertyName($propertyName);
         $this->setReadableName($readableName);
         $this->setRequired($required);
@@ -181,7 +181,7 @@ class Item
 
 
     /**
-     * @return Validator
+     * @return ValidatorTranslator
      */
     public function getValidator()
     {
